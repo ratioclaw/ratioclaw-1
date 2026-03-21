@@ -65,3 +65,16 @@
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-21 09:54:56.000 UTC
+
+<!-- telegram-meta: {"chat_id":8543712525,"msg_id":20,"user_id":8543712525,"username":null,"chat_type":"private","ts":"2026-03-21T09:54:55.000Z"} -->
+
+**來自：** Ratio · private
+
+---
+
+你有哪些 skills 能用？
+
+
+---
