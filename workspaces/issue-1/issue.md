@@ -81,7 +81,17 @@
 
 ### Comment by @ratioclaw at 2026-03-21 09:55:00.000 UTC
 
-⚙️ 正在執行中...
+小比比有個大螯！已完成：列出可用技能如下。
+
+- 任務接收與解析（處理 Telegram 元資料並抽取核心指令）  
+- 任務派工與追蹤（建立可追蹤 TODO / issue、指派、更新狀態）  
+- 回報與產出管理（把輸出放到 workspaces/issue-{N}/ 並回報 repo-relative path）  
+- 呼叫與協調子代理（如 coding-agent、review-agent 進行程式修改或測試）  
+- 文件/摘要/翻譯（文章、會議錄音轉文字並整理要點）  
+- 檔案處理與報表生成（JSON、HTML、圖片等輸出）  
+- 基本 repo 操作支援（檢視、diff、Commit 建議）  
+
+下一步：需我把其中某項技能示範成具體 TODO（或延伸範例）嗎？
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
