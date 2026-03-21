@@ -32,7 +32,22 @@
 
 ### Comment by @ratioclaw at 2026-03-21 10:04:08.000 UTC
 
-⚙️ 正在執行中...
+已回覆至 Issue comment：https://github.com/ratioclaw/ratioclaw-1/issues/1#issuecomment-4102990261
+
+---
+
+以下是 10 個常見的使用 **OpenClaw** 情境：
+
+1. **自動化 GitHub Issue 管理** — 接收 Telegram 需求後，自動建立、標記、關閉 Issue
+2. **PR 自動審查與摘要** — AI 自動生成 Code Review 摘要與建議
+3. **Telegram 任務中樞** — 聊天介面直接下需求，Agent 轉為可追蹤工作項目
+4. **每日簡報自動生成** — 彙整行事曆、郵件、PM 工具，推送可行動摘要
+5. **程式碼自動撰寫與重構** — Agent 生成或優化程式碼並整合 CI/CD
+6. **會議記錄自動整理** — 逐字稿轉行動項目、責任人、截止日
+7. **社群媒體自動發文** — 依排程或觸發條件自動草擬發文
+8. **市場研究與競品分析** — 爬取競品資訊並回傳結構化報告
+9. **語意記憶搜尋** — 自然語言查詢知識庫，自動摘要相關文件
+10. **CI/CD 狀態監控與警報** — 建置失敗時自動分析並通知負責人
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
