@@ -96,7 +96,83 @@
 
 ### Comment by @ratioclaw at 2026-03-21 10:09:14.000 UTC
 
-⚙️ 正在執行中...
+## Claude Code Channels 設定教學
+
+Claude Code Channels 讓你透過 Telegram 或 Discord 遠端控制 AI coding agent。
+
+---
+
+### 前置條件
+
+- Claude Code **v2.1.80+**（`claude --version` 確認）
+- 安裝 **Bun** runtime（非 Node.js）：`curl -fsSL https://bun.sh/install | bash`
+- 使用 **`claude.ai login`** 登入（不支援 API key 登入）
+- Team/Enterprise 帳號需由管理員在組織設定中啟用 Channels
+
+---
+
+### Telegram 設定步驟
+
+**1. 建立 Telegram Bot**
+
+前往 Telegram，找 @BotFather，發送 `/newbot`，依指示完成後取得 Token。
+
+**2. 安裝官方 Plugin**
+
+```bash
+/plugin install telegram@claude-plugins-official
+```
+
+若出現找不到錯誤，先執行：
+
+```bash
+/plugin marketplace add anthropics/claude-plugins-official
+```
+
+**3. 設定 Token**
+
+```bash
+/telegram:configure <你的_BOT_TOKEN>
+```
+
+Token 會儲存在 `~/.claude/channels/telegram/.env`。
+
+**4. 啟動 Channels 模式**
+
+```bash
+claude --channels plugin:telegram@claude-plugins-official
+```
+
+> `--channels` 旗標每次啟動都需要加。
+
+**5. 配對帳號**
+
+向你的 Bot 傳送任意訊息 → Bot 回覆配對碼 → 在 Claude 輸入：
+
+```bash
+/telegram:access pair <配對碼>
+```
+
+**6. 限制存取（建議）**
+
+```bash
+/telegram:access policy allowlist
+```
+
+---
+
+### 安全與持久化建議
+
+- 搭配 `tmux` 或 `screen` 保持 session 長期運行
+- 多個 channel 用空格分隔：`--channels plugin:telegram@... plugin:discord@...`
+- 設定檔位置：`~/.claude/channels/`
+
+---
+
+### 參考資料
+
+- [官方文件 - Channels](https://code.claude.com/docs/en/channels)
+- [Telegram 詳細教學](https://dev.to/alanwest/claude-code-channels-control-your-ai-coding-agent-from-telegram-2b0n)
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
