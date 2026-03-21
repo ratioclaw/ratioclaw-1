@@ -32,9 +32,9 @@
 
 ### Comment by @ratioclaw at 2026-03-21 10:04:08.000 UTC
 
-🦞「小龍蝦」已收到新指示，正在派工給 coding-agent。
+⚙️ 正在執行中...
 
-<!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain","requestTelegramMeta":{"chat_id":8543712525,"msg_id":29,"user_id":8543712525,"chat_type":"private","ts":"2026-03-21T10:04:05.000Z"}} -->
+<!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
 
 ---
