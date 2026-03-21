@@ -80,3 +80,16 @@
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-21 10:09:11.000 UTC
+
+<!-- telegram-meta: {"chat_id":8543712525,"msg_id":31,"user_id":8543712525,"username":null,"chat_type":"private","ts":"2026-03-21T10:09:10.000Z"} -->
+
+**來自：** Ratio · private
+
+---
+
+請教我 claude code channels 怎麼設定
+
+
+---
