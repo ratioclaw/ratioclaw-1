@@ -1,0 +1,27 @@
+2026-03-22T05:32:37.694Z [INFO] Workspace initialized: d234c7d6-511c-4a79-beec-b2c963325f67 (checkpoints: 0)
+2026-03-22T05:32:37.713Z [INFO] Starting Copilot CLI: 1.0.9
+2026-03-22T05:32:37.713Z [INFO] Node.js version: v24.11.1
+2026-03-22T05:32:37.961Z [ERROR] Request to GitHub API at https://api.individual.githubcopilot.com/agents/swe/custom-agents/ratioclaw/ratioclaw-1?exclude_invalid_config=true&include_sources=org,enterprise failed with status 400 (request ID: 7000:20C5E2:2EE1:4427:69BF7EF5), body: checking third-party user token: bad request: Personal Access Tokens are not supported for this endpoint
+
+2026-03-22T05:32:37.962Z [WARNING] Failed to load custom agents for ratioclaw/ratioclaw-1: checking third-party user token: bad request: Personal Access Tokens are not supported for this endpoint
+
+2026-03-22T05:32:37.962Z [WARNING] could not load remote agents for ratioclaw/ratioclaw-1: server returned 400: 
+2026-03-22T05:32:37.970Z [ERROR] Starting remote MCP client for github-mcp-server with url: https://api.individual.githubcopilot.com/mcp/readonly
+2026-03-22T05:32:37.970Z [ERROR] Creating MCP client for github-mcp-server...
+2026-03-22T05:32:37.971Z [ERROR] Connecting MCP client for github-mcp-server...
+2026-03-22T05:32:38.458Z [ERROR] MCP client for github-mcp-server connected, took 487ms
+2026-03-22T05:32:38.459Z [ERROR] Started MCP client for remote server github-mcp-server
+2026-03-22T05:32:38.459Z [ERROR] GitHub MCP server configured after authentication
+2026-03-22T05:32:39.310Z [INFO] Memory enablement check: enabled
+2026-03-22T05:32:39.982Z [INFO] Memory enablement check: enabled
+2026-03-22T05:32:40.321Z [INFO]  
+2026-03-22T05:32:40.321Z [INFO] --- Start of group: configured settings: ---
+2026-03-22T05:32:40.321Z [INFO] --- End of group ---
+2026-03-22T05:32:40.621Z [INFO]  
+2026-03-22T05:32:40.621Z [INFO] --- Start of group: configured settings: ---
+2026-03-22T05:32:40.621Z [INFO] --- End of group ---
+2026-03-22T05:32:40.727Z [INFO] --- Start of group: Completion request configuration:  ---
+2026-03-22T05:32:40.728Z [INFO] --- End of group ---
+2026-03-22T05:32:41.378Z [INFO] CompactionProcessor: Utilization 19.5% (24931/128000 tokens) below threshold 80%
+2026-03-22T05:32:41.508Z [INFO] --- Start of group: Sending request to the AI model ---
+2026-03-22T05:32:48.025Z [INFO] --- End of group ---
