@@ -245,3 +245,14 @@
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-22 06:06:39.000 UTC
+
+已將圖片轉為 PNG 格式，應該可以在 Telegram 正常顯示了。
+
+![缺錢插畫](files/shupa-broke-no-gemini.png)
+
+小比比備註：SVG 在 Telegram 無法預覽，已改用 PNG。
+
+
+---
