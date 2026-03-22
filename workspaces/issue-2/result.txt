@@ -1,7 +1,3 @@
-已貼上剛剛畫的圖片。
-
-- SVG：`workspaces/issue-2/nanobanana-output/shupa-broke-no-gemini.svg`
-
-![缺錢插畫](workspaces/issue-2/nanobanana-output/shupa-broke-no-gemini.svg)
+現在用 GitHub API 發 comment，貼上 PNG 圖片：
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
