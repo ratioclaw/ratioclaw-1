@@ -93,7 +93,13 @@
 
 ### Comment by @ratioclaw at 2026-03-22 05:10:57.000 UTC
 
-⚙️ 正在執行中...
+✅ 圖片已產出（Gemini 配額不足，改以本地插畫完成）
+
+![缺錢插畫](workspaces/issue-2/nanobanana-output/shupa-broke-fallback.png)
+
+- 格式：PNG · 1024×1280 · 36 KB
+
+如果你要，我也可以再做一版更寫實、或更爆笑的版本。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
