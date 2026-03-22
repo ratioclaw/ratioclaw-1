@@ -121,7 +121,14 @@
 
 ### Comment by @ratioclaw at 2026-03-22 05:25:47.000 UTC
 
-⚙️ 正在執行中...
+- 小比比已完成：已在 issue workspace 產出一張「不用 Gemini」的插畫（SVG 格式），表達「很缺錢」的樣子。
+
+- 交付物：
+  - SVG：workspaces/issue-2/nanobanana-output/shupa-broke-no-gemini.svg
+
+- 下一步（擇一）：
+  1. 若要 PNG，可請求匯出 PNG，我會再輸出到 repo 路徑。  
+  2. 若需更寫實或更爆笑的版本，回覆想要的風格關鍵詞（例如：寫實 / 卡通 / 黑色幽默）。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
