@@ -1,25 +1,11 @@
 # Repository Memory
 
-## Stable Context
-- **Repo 基本設定**  
-  - 目標 repository 為 `ratioclaw/ratioclaw-1`。  
-  - 所有 issue 均以 **GitHub Issue / Comment** 為唯一真實來源，任何摘要或記錄皆須保留可追溯性。  
-  - 每次記憶蒐集的範圍上限為最近 30 天、最多 100 個 issue。  
+這份檔案是從 `daily/*.md` 蒸餾出來的長期 memory。
 
-- **Agent 協作原則**  
-  - 每個 issue 會指派一隻「龍蝦」agent（如「蝦趴」或「比比」）負責蒐集、整理與回饋。  
-  - Agent 必須在回覆中提供 **可追蹤的文字紀錄**，以便後續功能規劃或決策參考。  
-  - 任何決策前，必須取得主人（使用者）的明確確認，否則僅停留在建議階段。  
+尚未建立整理後的長期 context。
 
-- **記憶手冊規範**（來源：`shared/manual.md`）  
-  - 只保留 **穩定規則、長期決策、常見限制、repo 習慣**。  
-  - 不得直接複製 issue 原文；摘要必須「濃縮」且保持工程可讀性。  
-  - `compact‑memory` 工作流程會讀取此手動筆記，且不會覆寫它。  
+請先產生 daily snapshots，再整理成這份 MEMORY.md：
 
-## Recent Themes
-| 主題 | 觀察 | 相關 Issue |
-|------|------|------------|
-| **資金流與資源變現** | 主人急需 1,000,000 台幣，agent「蝦趴」提出三條路線：借款、變賣資產、預收服務。 | #2 蝦趴 |
-| **即時需求轉化** | 「比比」在 Telegram 前線即時把使用者問題轉成可追蹤工作項目，並提供完整教學。 | #1 比比 |
-| **技術教學與文件化** | 針對「Claude Code Channels」的設定，提供前置條件、Bot 建立、插件安裝、Token 設定、啟動指令、配對流程與安全建議，並附官方文件連結。 | #1 比比 |
-| **決策阻礙** |
+- 觸發 `.github/workflows/compact-memory.yml`
+- 執行 `node .github/scripts/memory/compact-memory.mjs`
+- 執行 `node .github/scripts/memory/summarize-memory-context.mjs --memory-dir .memory --output .memory/MEMORY.md`
