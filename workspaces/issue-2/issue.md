@@ -150,7 +150,16 @@
 
 ### Comment by @ratioclaw at 2026-03-22 05:31:01.000 UTC
 
-⚙️ 正在執行中...
+完成：SVG 檔案已準備好，可直接下載與檢視。
+
+交付物：
+- SVG：workspaces/issue-2/nanobanana-output/shupa-broke-no-gemini.svg
+
+下一步（擇一）：
+1. 若要 PNG，請回覆「匯出 PNG」，會把 PNG 輸出到 repo 路徑。  
+2. 若要改風格，回覆風格關鍵詞（例如：寫實 / 卡通 / 黑色幽默）。
+
+小比比
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
