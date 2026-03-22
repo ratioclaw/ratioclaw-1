@@ -217,7 +217,21 @@ sch_3bb0b6be67ff4b38815b12ca6504342e
 
 ### Comment by @ratioclaw at 2026-03-22 11:56:53.000 UTC
 
-⚙️ 正在執行中...
+完成：已讀取 repo 並整理出在此專案中呼叫 Copilot CLI 的實作與範例。
+
+交付物（重點檔案與說明）：
+- .github/workflows/coding-agent.yml — 安裝與執行流程（安裝：curl -fsSL https://gh.io/copilot-install | VERSION=v1.0.9 bash；執行：copilot -p "${prompt}" --yolo --output-format json --stream off）。路徑：.github/workflows/coding-agent.yml
+- .github/scripts/extract-copilot-result.mjs — 解析 copilot JSON 日誌並擷取最終回覆。路徑：.github/scripts/extract-copilot-result.mjs
+- Issue workspace 範例位置與輸出：workspaces/issue-{issue_number}/（copilot 日誌檔：workspaces/issue-{issue_number}/copilot-exec-log.json、結果檔：workspaces/issue-{issue_number}/result.txt）
+
+快速使用範例（在 repo 根目錄執行，工作目錄設為特定 issue workspace）：
+- 安裝（若尚未安裝）：curl -fsSL https://gh.io/copilot-install | VERSION=v1.0.9 bash
+- 執行（在 workspaces/issue-{N} 裡）：
+  COPILOT_GITHUB_TOKEN=<token> GITHUB_TOKEN=<token> copilot -p "$(cat issue.md)" --yolo --output-format json --stream off | tee copilot-exec-log.json
+
+下一步建議：
+1. 確認 secrets（COPILOT_GITHUB_TOKEN / GH_ISSUES_TOKEN）已配置於執行環境。  
+2. 若要本地測試，從對應 workspace（workspaces/issue-{N}）按上面範例執行並檢查 copilot-exec-log.json，再用 .github/scripts/extract-copilot-result.mjs 取得最終輸出。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
