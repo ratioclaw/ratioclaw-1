@@ -201,3 +201,16 @@ sch_3bb0b6be67ff4b38815b12ca6504342e
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-22 11:56:50.000 UTC
+
+<!-- telegram-meta: {"chat_id":8543712525,"msg_id":85,"user_id":8543712525,"username":null,"chat_type":"private","ts":"2026-03-22T11:56:49.000Z"} -->
+
+**來自：** Ratio · private
+
+---
+
+你讀取整個repo，告訴我是怎麼呼叫copilot cli的
+
+
+---
