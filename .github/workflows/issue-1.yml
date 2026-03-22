@@ -303,6 +303,12 @@ jobs:
           RESULT_FILE: ${{ steps.workspace.outputs.result_file }}
           LOG_FILE: ${{ steps.workspace.outputs.log_file }}
           AGENT_BROWSER_STATE: "auth.json"
+          # 明確將 API keys 傳入此 step，確保 copilot CLI 及其子行程都能取得。
+          # 雖然 workflow 層級 env 理論上應可繼承，但明確宣告可避免 copilot CLI 沙箱隔離造成的問題。
+          GEMINI_API_KEY: ${{ env.GEMINI_API_KEY }}
+          NANOBANANA_GEMINI_API_KEY: ${{ env.GEMINI_API_KEY }}
+          FELO_API_KEY: ${{ env.FELO_API_KEY }}
+          TAVILY_API_KEY: ${{ env.TAVILY_API_KEY }}
         run: |
           set -euo pipefail
 
@@ -542,6 +548,22 @@ jobs:
           if [ "$push_succeeded" != "true" ]; then
             echo "::error::Failed to push after 3 attempts."
             exit 1
+          fi
+
+      - name: Rewrite image URLs in result
+        if: success() && steps.workspace.outcome == 'success'
+        shell: bash
+        env:
+          RESULT_FILE: ${{ steps.workspace.outputs.result_file }}
+          BRANCH_NAME: ${{ steps.workspace.outputs.branch_name }}
+        run: |
+          set -euo pipefail
+
+          if [[ -s "${RESULT_FILE}" ]]; then
+            node .github/scripts/rewrite-image-urls.mjs \
+              "${RESULT_FILE}" \
+              "${GITHUB_REPOSITORY}" \
+              "${BRANCH_NAME}"
           fi
 
       # 成功時，把最終結果直接貼回進度留言，讓 issue 頁面就是最終輸出入口。
