@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1280" viewBox="0 0 1024 1280">
+  <defs>
+    <style>
+      .bg{fill:#fff6e6}
+      .shadow{fill:#000;opacity:0.06}
+      .person{fill:#ffd9c7;stroke:#9b6b4a;stroke-width:6}
+      .cloth{fill:#6c9bd8}
+      .pocket{fill:none;stroke:#9b6b4a;stroke-width:5}
+      .face{fill:#9b6b4a}
+      .money{fill:#8bc34a}
+      .text{font-family:Inter, Arial, sans-serif;fill:#333;font-size:36px}
+    </style>
+  </defs>
+  <rect class="bg" width="100%" height="100%"/>
+  <ellipse class="shadow" cx="512" cy="1160" rx="300" ry="40"/>
+
+  <!-- Body -->
+  <g transform="translate(262,240)">
+    <ellipse class="person" cx="250" cy="220" rx="160" ry="180"/>
+    <!-- Shirt -->
+    <path class="cloth" d="M90 320 C140 380 360 380 410 320 L410 520 L90 520 Z"/>
+    <!-- Arms pulling out pockets -->
+    <path class="person" d="M90 380 C30 420 20 480 60 500 L110 480 Z"/>
+    <path class="person" d="M410 380 C470 420 480 480 440 500 L390 480 Z"/>
+    <!-- Pockets (turned out) -->
+    <path class="pocket" d="M120 440 Q160 470 120 500"/>
+    <path class="pocket" d="M380 440 Q340 470 380 500"/>
+    <!-- Face -->
+    <circle class="face" cx="250" cy="120" r="40"/>
+    <path d="M235 125 Q250 140 265 125" stroke="#6b422b" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- Sad eyebrows -->
+    <path d="M230 100 Q245 92 260 100" stroke="#6b422b" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- Eyes -->
+    <circle cx="240" cy="118" r="4" fill="#6b422b"/>
+    <circle cx="260" cy="118" r="4" fill="#6b422b"/>
+    <!-- Little sweat drop -->
+    <path d="M295 85 Q300 70 310 85 Q300 92 295 85" fill="#cfe9ff" stroke="#9bbfe6" stroke-width="2"/>
+
+    <!-- Few crumpled bills falling -->
+    <g transform="translate(100,0)">
+      <rect class="money" x="-20" y="360" width="60" height="32" rx="4"/>
+      <rect class="money" x="220" y="300" width="60" height="32" rx="4" transform="rotate(-18 250 316)"/>
+      <rect class="money" x="160" y="420" width="60" height="32" rx="4" transform="rotate(12 190 436)"/>
+    </g>
+
+    <!-- Speech bubble: "缺錢中" -->
+    <g transform="translate(-40,-40)">
+      <path d="M20 20 Q40 -10 120 0 Q300 -10 340 60 Q300 80 220 90 Q120 110 40 80 Q10 70 20 20" fill="#fff" stroke="#e6a07a" stroke-width="6"/>
+      <text x="140" y="60" class="text" text-anchor="middle">缺錢中</text>
+    </g>
+  </g>
+
+  <!-- Footer note -->
+  <text x="512" y="1240" class="text" text-anchor="middle" font-size="18px">小比比畫：表情誇張、口袋空空，但還保有希望</text>
+</svg>
