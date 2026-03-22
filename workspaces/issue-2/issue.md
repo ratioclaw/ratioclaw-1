@@ -239,7 +239,7 @@
 
 ### Comment by @ratioclaw at 2026-03-22 06:05:10.000 UTC
 
-⚙️ 正在執行中...
+現在用 GitHub API 發 comment，貼上 PNG 圖片：
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
