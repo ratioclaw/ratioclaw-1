@@ -213,7 +213,11 @@
 
 ### Comment by @ratioclaw at 2026-03-22 05:41:56.000 UTC
 
-⚙️ 正在執行中...
+已貼上剛剛畫的圖片。
+
+- SVG：`workspaces/issue-2/nanobanana-output/shupa-broke-no-gemini.svg`
+
+![缺錢插畫](workspaces/issue-2/nanobanana-output/shupa-broke-no-gemini.svg)
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
