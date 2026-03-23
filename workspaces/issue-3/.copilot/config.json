@@ -1,6 +1,6 @@
 {
   "experimental": true,
-  "model": "gpt-5-mini",
+  "model": "gemini-3.1-pro-preview",
   "reasoning_effort": "xhigh",
   "auto_update": false,
   "trusted_folders": [
