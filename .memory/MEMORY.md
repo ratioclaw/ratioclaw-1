@@ -1,20 +1,25 @@
 # Repository Memory  
 
 ## Stable Context  
-- **核心工作流程**  
-  - 以 GitHub Issue / Comment 為唯一原始資料來源，所有任務皆以 Issue 為單位追蹤。  
-  - 代理人（🦞）依照 `agents/issue-{N}.md` 檔案記錄執行細節，並遵守 repo 內既定的 **coding‑agent** 工作流程 (`.github/workflows/coding-agent.yml`) 以及 **Copilot 解析腳本** (`.github/scripts/extract‑copilot‑result.mjs`)。  
-  - 任何自動化排程皆透過 `schedule‑flow` 建立，排程 ID 必須在環境變數中註冊後方可執行。  
 
-- **溝通管道**  
-  - 主要與主人互動的介面為 Telegram Bot，代理人會即時將主人指令轉化為可追蹤的 Issue，並在完成後回覆文字或圖檔。  
-  - 圖檔預設以 SVG 產出，若 Telegram 無法預覽，代理人會自動轉換為 PNG 並以 GitHub API 發佈於相關 Issue/PR。  
+- **Telegram ↔ GitHub 自動化工作流**  
+  - 由「比比」負責將 Telegram 群組/頻道的需求訊息即時轉換為 GitHub Issue 或 Project 卡片，並自動加標籤、指派負責人。  
+  - 相關腳本與工作流程已在 `.github/workflows/coding-agent.yml`、`.github/scripts/extract‑copilot‑result.mjs`、`workspaces/issue-{N}/` 中實作，支援 Copilot CLI 輸出解析。  
 
-- **代理人角色與命名慣例**  
-  - `比比`：負責文字類需求、教學說明、排程建立與 repo 掃描。  
-  - `蝦趴`：負責圖形產出、格式轉換與即時回饋。  
-  - 代理人名稱前置「🦞」以示身份，編號 (`#1`, `#2`) 與 Issue 編號保持一致。  
+- **每日 AI 新聞推播排程**  
+  - 透過 `schedule‑flow` 建立的排程（ID `sch_3bb0b6be67ff4b38815b12ca6504342e`）每天於 09:00 觸發，會掃描整個 repo，回報 Copilot CLI 的呼叫方式與範例。  
 
-- **長期規則**  
-  1. **不自行關閉 Issue**：除非主人明確指示，所有 Issue 均保持開啟狀態。  
-  2. **環境變數必須先行設定**：任何排程或腳本執行前，相關環境變數必須在 repo 設
+- **圖檔即時交付規範**  
+  - 由「蝦趴」負責產出視覺資產。因 Telegram 無法直接預覽 SVG，必須在 PR/Issue 中以 PNG 形式貼圖，並提供 raw URL。  
+
+- **共通限制與慣例**  
+  - 所有原始需求與討論必須以 GitHub Issue 為唯一真相來源，Telegram 只作為前端觸發點。  
+  - 任何自動化功能在「需求規劃」階段必須先確定 **Bot API 選型、訊息格式規範、錯誤回報機制**，方可進入開發。  
+  - 變更或新增功能需在 Issue 中留下完整文字紀錄，避免僅依賴即時聊天訊息。  
+
+## Recent Themes  
+
+| 主題 | 近期觀察 | 影響 |
+|------|----------|------|
+| **即時回饋機制** | 3 天內「比比」與「蝦趴」皆在 Telegram 中即時回應主人需求（文字需求 → Issue、SVG → PNG） | 強化了「需求即時可視化」的使用者體驗，成為自動化流程的核心價值。 |
+| **資金需求與變現方案** | 3/21 針對「急需 1,000,000 台幣」提出 **借、賣、預收** 三條
