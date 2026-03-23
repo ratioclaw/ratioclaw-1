@@ -1,8 +1,10 @@
-尚無新聞結果：coding-agent 尚未回傳整理稿。
+已完成：今日三則 AI 新聞摘要已產出並寫入檔案。
 
-- 結果檔：workspaces/issue-1/result.txt — 目前內容顯示「已擷取指令，等待 coding-agent 回傳」  
-- 執行日誌：workspaces/issue-1/copilot-exec-log.json — 可用來檢查執行進度或錯誤
+交付物：
+- TXT：workspaces/issue-1/result.txt
 
-下一步建議：請稍候讓 coding-agent 完成；如需立即檢查，可手動執行 .github/scripts/extract-copilot-result.mjs 解析上方日誌或回報要調整的新聞來源/語言。
+下一步建議：
+1. 若需把此摘要透過 Telegram 推播，請回覆「推播」並指定要推送的 chat_id 或使用預設排程。  
+2. 若要更詳盡版本或替換來源（例如只用官方新聞稿或指定媒體），請回覆「要更詳細」並列出偏好來源。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
