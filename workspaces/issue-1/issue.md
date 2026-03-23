@@ -307,7 +307,14 @@ sch_3bb0b6be67ff4b38815b12ca6504342e
 
 ### Comment by @ratioclaw at 2026-03-23 03:26:12.000 UTC
 
-⚙️ 正在執行中...
+已完成：今日三則 AI 新聞摘要已產出並寫入檔案。
+
+交付物：
+- TXT：workspaces/issue-1/result.txt
+
+下一步建議：
+1. 若需把此摘要透過 Telegram 推播，請回覆「推播」並指定要推送的 chat_id 或使用預設排程。  
+2. 若要更詳盡版本或替換來源（例如只用官方新聞稿或指定媒體），請回覆「要更詳細」並列出偏好來源。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
