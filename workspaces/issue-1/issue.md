@@ -372,7 +372,14 @@ curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id=
 
 ### Comment by @ratioclaw at 2026-03-23 04:13:36.000 UTC
 
-⚙️ 正在執行中...
+已完成：今日新聞摘要與推播說明已整理並寫入 Issue workspace，準備好由外部環境推播。
+
+交付物：
+- TXT：workspaces/issue-1/result.txt  
+- chat_id：8543712525
+
+下一步：
+- 若需系統自動推播，請把 Telegram BOT_TOKEN 安全加入可執行環境的 CI/Secrets，或提供授權的執行環境以便發送；若要我提供手動推播指令範例，回覆「手動指令」。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
