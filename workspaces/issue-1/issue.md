@@ -280,7 +280,12 @@ sch_3bb0b6be67ff4b38815b12ca6504342e
 
 ### Comment by @ratioclaw at 2026-03-23 02:41:30.000 UTC
 
-⚙️ 正在執行中...
+尚無新聞結果：coding-agent 尚未回傳整理稿。
+
+- 結果檔：workspaces/issue-1/result.txt — 目前內容顯示「已擷取指令，等待 coding-agent 回傳」  
+- 執行日誌：workspaces/issue-1/copilot-exec-log.json — 可用來檢查執行進度或錯誤
+
+下一步建議：請稍候讓 coding-agent 完成；如需立即檢查，可手動執行 .github/scripts/extract-copilot-result.mjs 解析上方日誌或回報要調整的新聞來源/語言。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
