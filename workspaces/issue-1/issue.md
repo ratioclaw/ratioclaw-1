@@ -280,9 +280,9 @@ sch_3bb0b6be67ff4b38815b12ca6504342e
 
 ### Comment by @ratioclaw at 2026-03-23 02:41:30.000 UTC
 
-🦞「小龍蝦」已收到新指示，正在派工給 coding-agent。
+⚙️ 正在執行中...
 
-<!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain","requestTelegramMeta":{"chat_id":8543712525,"msg_id":89,"user_id":8543712525,"chat_type":"private","ts":"2026-03-23T02:41:25.000Z"}} -->
+<!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
 
 ---
