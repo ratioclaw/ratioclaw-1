@@ -1,17 +1,13 @@
-完成：已讀取 repo 並整理出在此專案中呼叫 Copilot CLI 的實作與範例。
+完成：已擷取最新 Telegram 指令並將核心內容記錄為可追蹤任務。
 
-交付物（重點檔案與說明）：
-- .github/workflows/coding-agent.yml — 安裝與執行流程（安裝：curl -fsSL https://gh.io/copilot-install | VERSION=v1.0.9 bash；執行：copilot -p "${prompt}" --yolo --output-format json --stream off）。路徑：.github/workflows/coding-agent.yml
-- .github/scripts/extract-copilot-result.mjs — 解析 copilot JSON 日誌並擷取最終回覆。路徑：.github/scripts/extract-copilot-result.mjs
-- Issue workspace 範例位置與輸出：workspaces/issue-{issue_number}/（copilot 日誌檔：workspaces/issue-{issue_number}/copilot-exec-log.json、結果檔：workspaces/issue-{issue_number}/result.txt）
+交付物：
+- 任務指令（核心）：「幫我每天整理三則最重要的AI新聞，早上9點推播給我」
+- 指令來源檔案：workspaces/issue-1/issue.md（含最新 telegram-meta 留言）
+- 任務派工紀錄（系統內文）：workspaces/issue-1/issue.md（顯示已派工給 coding-agent）
+- 預期輸出範例：workspaces/issue-1/copilot-exec-log.json、workspaces/issue-1/result.txt
 
-快速使用範例（在 repo 根目錄執行，工作目錄設為特定 issue workspace）：
-- 安裝（若尚未安裝）：curl -fsSL https://gh.io/copilot-install | VERSION=v1.0.9 bash
-- 執行（在 workspaces/issue-{N} 裡）：
-  COPILOT_GITHUB_TOKEN=<token> GITHUB_TOKEN=<token> copilot -p "$(cat issue.md)" --yolo --output-format json --stream off | tee copilot-exec-log.json
-
-下一步建議：
-1. 確認 secrets（COPILOT_GITHUB_TOKEN / GH_ISSUES_TOKEN）已配置於執行環境。  
-2. 若要本地測試，從對應 workspace（workspaces/issue-{N}）按上面範例執行並檢查 copilot-exec-log.json，再用 .github/scripts/extract-copilot-result.mjs 取得最終輸出。
+下一步：
+1. 等候 coding-agent 回傳執行結果到上述 result.txt；如逾時，優先檢查 copilot-exec-log.json。  
+2. 如需調整推播頻率或來源（新聞來源、語言等），請回覆具體設定。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
