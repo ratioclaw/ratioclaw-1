@@ -337,7 +337,20 @@ chat_id 應該有給過你了，直接用就好
 
 ### Comment by @ratioclaw at 2026-03-23 03:51:11.000 UTC
 
-⚙️ 正在執行中...
+已準備好要推播，但本環境無法直接連外（無法呼叫 Telegram API），因此尚未實際發送。
+
+交付物：
+- TXT：workspaces/issue-1/result.txt
+- chat_id：8543712525（取自 issue 的 telegram-meta）
+
+手動推播範例指令（在可連外的機器上執行，將 BOT_TOKEN 換成你的 Bot token）：
+```
+export BOT_TOKEN="你的_BOT_TOKEN"
+curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id=8543712525 -d text="$(cat workspaces/issue-1/result.txt)"
+```
+
+下一步：
+- 若要由系統自動推播，請提供可用的 BOT_TOKEN（以安全方式加入 CI/Secrets）；或授權我在有網路的執行環境替你執行。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
