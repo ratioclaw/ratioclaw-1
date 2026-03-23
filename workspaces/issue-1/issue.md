@@ -47,3 +47,16 @@
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-23 04:48:19.000 UTC
+
+<!-- telegram-meta: {"chat_id":8543712525,"msg_id":103,"user_id":8543712525,"username":null,"chat_type":"private","ts":"2026-03-23T04:48:18.000Z"} -->
+
+**來自：** Ratio · private
+
+---
+
+查詢新聞時，務必確認是「今天」的新聞，裡面有舊的新聞
+
+
+---
