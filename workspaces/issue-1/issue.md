@@ -356,3 +356,16 @@ curl -s -X POST "https://api.telegram.org/bot$BOT_TOKEN/sendMessage" -d chat_id=
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-23 04:13:31.000 UTC
+
+<!-- telegram-meta: {"chat_id":8543712525,"msg_id":95,"user_id":8543712525,"username":null,"chat_type":"private","ts":"2026-03-23T04:13:30.000Z"} -->
+
+**來自：** Ratio · private
+
+---
+
+我懂了，你在Issue裡面留言整理好的新聞就好，我已經設定好自動推播到telegram的機制
+
+
+---
