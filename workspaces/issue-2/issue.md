@@ -408,9 +408,9 @@ Cloudflare 那端是正常的——它按設計只轉發指定的 progress comme
 
 ### Comment by @ratioclaw at 2026-03-24 13:46:54.000 UTC
 
-🦞「小龍蝦」已收到新指示，正在派工給 coding-agent。
+⚙️ 正在執行中...
 
-<!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain","requestTelegramMeta":{"chat_id":8543712525,"msg_id":167,"user_id":8543712525,"chat_type":"private","ts":"2026-03-24T13:46:49.000Z"}} -->
+<!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
 
 ---
