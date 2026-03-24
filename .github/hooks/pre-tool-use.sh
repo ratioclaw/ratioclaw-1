@@ -4,7 +4,7 @@
 
 INPUT=$(cat)
 TOOL_NAME=$(echo "$INPUT" | jq -r '.toolName')
-TOOL_ARGS=$(echo "$INPUT" | jq -r '.toolArgs')
+TOOL_ARGS=$(echo "$INPUT" | jq -r '.arguments')
 
 POLICY_NOTE="【重要政策】你不可以自行在任何 Issue 上留言、建立評論，或透過任何方式（gh CLI / GitHub REST API / MCP 工具）直接操作 GitHub Issues。如需與 Issue 互動，請通知人工介入處理。"
 
