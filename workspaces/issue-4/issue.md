@@ -77,9 +77,9 @@ https://cdn.jsdelivr.net/gh/ratioclaw/ratioclaw-1@issue-4/workspaces/issue-4/art
 
 ### Comment by @ratioclaw at 2026-03-24 14:30:16.000 UTC
 
-🦞「小龍蝦」已收到新指示，正在派工給 coding-agent。
+⚙️ 正在執行中...
 
-<!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain","requestTelegramMeta":{"chat_id":8543712525,"msg_id":183,"user_id":8543712525,"chat_type":"private","ts":"2026-03-24T14:30:10.000Z"}} -->
+<!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
 
 ---
