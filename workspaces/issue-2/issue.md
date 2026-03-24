@@ -375,7 +375,18 @@ Cloudflare 那端是正常的——它按設計只轉發指定的 progress comme
 
 ### Comment by @ratioclaw at 2026-03-24 09:07:17.000 UTC
 
-⚙️ 正在執行中...
+修復完成。
+
+**根本修復：** `.github/hooks/pre-tool-use.sh` 第 8 行，將 `.toolArgs` 改為 `.arguments`，一行修正讓所有攔截規則恢復生效。
+
+**驗證結果：**
+- `curl api.github.com` → ✅ 攔截
+- `gh issue list` → ✅ 攔截
+- 一般 bash 指令 → ✅ 放行
+
+**Commit：** `53d825d`
+
+修復後，Agent 無法再繞過 hook 直接建立 Issue 留言，完整回覆內容只能寫入 `result.txt`，Telegram 就能正確收到了。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
