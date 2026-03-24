@@ -107,7 +107,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           # 抓完整歷史，這樣後面的 fetch / rebase / push 比較不會受限。
-          fetch-depth: 0
+          fetch-depth: 1
           token: "${{ secrets.GH_ISSUES_TOKEN || github.token }}"
 
       # 先把 Node.js 環境準備好，方便 CLI 或 Node-based tooling 使用。
