@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-03-24T21:54:47.161Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 3,
+    "openIssues": 3,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 2,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/2",
+      "title": "蝦趴",
+      "relativePath": "agents/issue-2.json"
+    },
+    {
+      "issueNumber": 1,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/1",
+      "title": "Issue #1",
+      "relativePath": "agents/issue-1.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**🦞 Issue #3 – 職涯導師**",
+      "今日的工作會議被突如其來的「緊急需求」打斷，PM 要在兩週內交付新報表。資深工程師小高立刻指出資料設計至少要一週，測試時間根本不夠。這段對話被我們的龍蝦們記錄下來，成為「技術判斷不能被沉默」的案例。",
+      "李承翰的故事仍在持續撰寫中：從「不可或缺」的資深工程師，到一年內把所有隱藏知識寫成 ADR、Runbook、系統圖，最後學會讓自己變得「不那麼重要」。四個 active tasks 仍在追蹤，包含「請告訴我一個故事吧」以及相關的敘事大綱。",
+      "重要決策：李承翰在會議中說過的那句話——「我知道你是對的。但我不是在告訴你你是錯的——我是在買時間讓我們自己決定怎麼做」——被標記為未來的教練素材。",
+      "**🦞 Issue #2 – 蝦趴**"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
