@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOID ESCAPE — 虛空逃脫</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    overflow: hidden;
+    user-select: none;
+  }
+  #ui {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  #ui span { color: #0ff; text-shadow: 0 0 8px #0ff; }
+  canvas {
+    display: block;
+    cursor: none;
+    touch-action: none;
+  }
+  #overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,10,0.88);
+    z-index: 20;
+    text-align: center;
+    gap: 18px;
+  }
+  #overlay h1 {
+    font-size: clamp(28px, 6vw, 52px);
+    letter-spacing: 8px;
+    color: #0ff;
+    text-shadow: 0 0 20px #0ff, 0 0 60px #08f;
+  }
+  #overlay .sub {
+    font-size: clamp(13px, 2.5vw, 16px);
+    color: #88f;
+    letter-spacing: 3px;
+    max-width: 420px;
+    line-height: 1.7;
+  }
+  #overlay .score-show {
+    font-size: clamp(18px, 4vw, 30px);
+    color: #f80;
+    text-shadow: 0 0 12px #f80;
+    letter-spacing: 4px;
+  }
+  #startBtn {
+    margin-top: 8px;
+    padding: 14px 40px;
+    background: transparent;
+    border: 2px solid #0ff;
+    color: #0ff;
+    font-family: inherit;
+    font-size: 16px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    transition: all .2s;
+    text-shadow: 0 0 8px #0ff;
+    box-shadow: 0 0 16px #0ff4, inset 0 0 16px #0ff1;
+  }
+  #startBtn:hover {
+    background: #0ff2;
+    box-shadow: 0 0 30px #0ff8, inset 0 0 20px #0ff3;
+    transform: scale(1.05);
+  }
+  .controls {
+    font-size: 12px;
+    color: #446;
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div id="ui">
+  <div>SCORE: <span id="scoreEl">0</span></div>
+  <div>LEVEL: <span id="levelEl">1</span></div>
+  <div>LIVES: <span id="livesEl">♥♥♥</span></div>
+  <div>HI: <span id="hiEl">0</span></div>
+</div>
+
+<canvas id="c"></canvas>
+
+<div id="overlay">
+  <h1>VOID ESCAPE</h1>
+  <div class="sub">虛空逃脫<br>閃躲所有子彈·收集水晶·生存到最後</div>
+  <div class="controls">滑鼠/觸控 控制移動</div>
+  <div id="deathInfo" style="display:none">
+    <div class="score-show" id="finalScore"></div>
+  </div>
+  <button id="startBtn">▶ 開始遊戲</button>
+</div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const scoreEl = document.getElementById('scoreEl');
+const levelEl = document.getElementById('levelEl');
+const livesEl = document.getElementById('livesEl');
+const hiEl = document.getElementById('hiEl');
+const overlay = document.getElementById('overlay');
+const startBtn = document.getElementById('startBtn');
+const finalScore = document.getElementById('finalScore');
+const deathInfo = document.getElementById('deathInfo');
+
+let W, H;
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// --- State ---
+let state = 'menu';
+let score = 0, hiScore = +localStorage.getItem('voidHi') || 0;
+let lives = 3;
+let level = 1;
+let frame = 0;
+let invincible = 0;
+
+// Player
+const player = { x: 0, y: 0, r: 7, trail: [] };
+let mx = 0, my = 0;
+
+// Game objects
+let bullets = [], crystals = [], particles = [], warnings = [];
+let spawnTimer = 0;
+let crystalTimer = 0;
+let diffTimer = 0;
+
+// Patterns
+const PATTERNS = ['ring', 'cross', 'spiral', 'rain', 'laser', 'swirl'];
+
+hiEl.textContent = hiScore;
+
+// --- Input ---
+canvas.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+canvas.addEventListener('touchmove', e => {
+  e.preventDefault();
+  mx = e.touches[0].clientX;
+  my = e.touches[0].clientY;
+}, { passive: false });
+canvas.addEventListener('touchstart', e => {
+  mx = e.touches[0].clientX;
+  my = e.touches[0].clientY;
+});
+
+// --- Utils ---
+const rnd = (a, b) => a + Math.random() * (b - a);
+const rndInt = (a, b) => Math.floor(rnd(a, b + 1));
+const TWO_PI = Math.PI * 2;
+
+function lerp(a, b, t) { return a + (b - a) * t; }
+
+function hsl(h, s, l) { return `hsl(${h},${s}%,${l}%)`; }
+
+// --- Particle ---
+function spawnParticles(x, y, color, count = 12, speed = 4) {
+  for (let i = 0; i < count; i++) {
+    const a = rnd(0, TWO_PI);
+    const sp = rnd(speed * 0.5, speed * 1.5);
+    particles.push({
+      x, y, vx: Math.cos(a) * sp, vy: Math.sin(a) * sp,
+      life: 1, decay: rnd(0.015, 0.04), r: rnd(2, 5), color
+    });
+  }
+}
+
+// --- Warning indicator for lasers ---
+function addWarning(x, y, dir, duration) {
+  warnings.push({ x, y, dir, t: duration, maxT: duration });
+}
+
+// --- Bullet factories ---
+function spawnRing(cx, cy, count, speed, hue) {
+  for (let i = 0; i < count; i++) {
+    const a = (TWO_PI / count) * i;
+    bullets.push({
+      x: cx, y: cy,
+      vx: Math.cos(a) * speed, vy: Math.sin(a) * speed,
+      r: 5, hue, type: 'normal'
+    });
+  }
+}
+
+function spawnFromEdge(count, speed, hue) {
+  for (let i = 0; i < count; i++) {
+    const side = rndInt(0, 3);
+    let x, y, vx, vy;
+    if (side === 0) { x = rnd(0, W); y = -10; vx = rnd(-1, 1) * speed; vy = speed; }
+    else if (side === 1) { x = W + 10; y = rnd(0, H); vx = -speed; vy = rnd(-1, 1) * speed; }
+    else if (side === 2) { x = rnd(0, W); y = H + 10; vx = rnd(-1, 1) * speed; vy = -speed; }
+    else { x = -10; y = rnd(0, H); vx = speed; vy = rnd(-1, 1) * speed; }
+    bullets.push({ x, y, vx, vy, r: 5, hue, type: 'normal' });
+  }
+}
+
+function spawnHoming(x, y, speed, hue) {
+  const a = Math.atan2(player.y - y, player.x - x);
+  bullets.push({
+    x, y,
+    vx: Math.cos(a) * speed, vy: Math.sin(a) * speed,
+    r: 6, hue, type: 'homing', homingT: 0
+  });
+}
+
+function spawnSpiral(cx, cy, count, speed, hue, angleOff) {
+  for (let i = 0; i < count; i++) {
+    const a = angleOff + (TWO_PI / count) * i;
+    bullets.push({
+      x: cx, y: cy,
+      vx: Math.cos(a) * speed, vy: Math.sin(a) * speed,
+      r: 4, hue, type: 'normal'
+    });
+  }
+}
+
+// --- Crystal ---
+function spawnCrystal() {
+  crystals.push({
+    x: rnd(60, W - 60),
+    y: rnd(80, H - 60),
+    r: 10,
+    life: 1,
+    pulse: rnd(0, TWO_PI),
+    hue: rndInt(150, 300)
+  });
+}
+
+// --- Spawn logic ---
+let spiralAngle = 0;
+let patternIndex = 0;
+let bossPhase = false;
+
+function triggerPattern() {
+  const speed = 2 + level * 0.4;
+  const hue = (frame * 2) % 360;
+
+  const pattern = PATTERNS[patternIndex % PATTERNS.length];
+  patternIndex++;
+
+  switch (pattern) {
+    case 'ring':
+      spawnRing(W / 2, H / 2, 8 + level * 2, speed, hue);
+      spawnRing(W / 2, H / 2, 12 + level, speed * 0.7, (hue + 60) % 360);
+      break;
+    case 'cross':
+      for (let side = 0; side < 4; side++) {
+        const a = (TWO_PI / 4) * side;
+        const cx = W / 2 + Math.cos(a) * 60, cy = H / 2 + Math.sin(a) * 60;
+        spawnRing(cx, cy, 6 + level, speed * 0.9, (hue + side * 60) % 360);
+      }
+      break;
+    case 'spiral':
+      for (let k = 0; k < 3; k++) {
+        spawnSpiral(W / 2, H / 2, 5, speed, (hue + k * 40) % 360, spiralAngle + k * Math.PI / 3);
+      }
+      spiralAngle += 0.35;
+      break;
+    case 'rain':
+      spawnFromEdge(10 + level * 3, speed * 0.8, hue);
+      break;
+    case 'laser':
+      // Homing bullets
+      const sides = [[W / 2, -20], [W + 20, H / 2], [W / 2, H + 20], [-20, H / 2]];
+      for (const [sx, sy] of sides) {
+        spawnHoming(sx, sy, speed * 0.85, (hue + 120) % 360);
+      }
+      break;
+    case 'swirl':
+      for (let i = 0; i < 20 + level * 2; i++) {
+        const a = rnd(0, TWO_PI);
+        const dist = rnd(30, 100);
+        const cx = W / 2 + Math.cos(a) * dist;
+        const cy = H / 2 + Math.sin(a) * dist;
+        const a2 = Math.atan2(cy - H / 2, cx - W / 2) + Math.PI / 2;
+        bullets.push({
+          x: cx, y: cy,
+          vx: Math.cos(a2) * speed, vy: Math.sin(a2) * speed,
+          r: 4, hue, type: 'normal'
+        });
+      }
+      break;
+  }
+
+  // Boss extra bursts at high levels
+  if (level >= 5 && Math.random() < 0.4) {
+    spawnRing(rnd(100, W - 100), rnd(100, H - 100), 12, speed * 1.2, (hue + 180) % 360);
+  }
+  if (level >= 8) {
+    for (let i = 0; i < 3; i++) spawnHoming(rnd(0, W), rnd(0, H), speed * 1.1, 300);
+  }
+}
+
+// --- Death / lives ---
+function takeDamage() {
+  if (invincible > 0) return;
+  lives--;
+  invincible = 120;
+  spawnParticles(player.x, player.y, '#f44', 20, 6);
+  if (lives <= 0) {
+    state = 'dead';
+    if (score > hiScore) { hiScore = score; localStorage.setItem('voidHi', hiScore); }
+    showOverlay();
+  }
+}
+
+// --- UI helpers ---
+function updateUI() {
+  scoreEl.textContent = score;
+  levelEl.textContent = level;
+  hiEl.textContent = hiScore;
+  const hearts = '♥'.repeat(lives) + '♡'.repeat(Math.max(0, 3 - lives));
+  livesEl.textContent = hearts;
+}
+
+function showOverlay() {
+  overlay.style.display = 'flex';
+  deathInfo.style.display = 'block';
+  finalScore.textContent = `SCORE: ${score}${score >= hiScore ? ' 🏆 NEW HI!' : ''}`;
+  startBtn.textContent = '▶ 再玩一次';
+}
+
+// --- Start ---
+function startGame() {
+  state = 'play';
+  score = 0; lives = 3; level = 1; frame = 0; invincible = 0;
+  bullets = []; crystals = []; particles = []; warnings = [];
+  spawnTimer = 0; crystalTimer = 0; diffTimer = 0;
+  patternIndex = 0; spiralAngle = 0;
+  mx = W / 2; my = H / 2;
+  player.x = W / 2; player.y = H / 2;
+  player.trail = [];
+  overlay.style.display = 'none';
+  updateUI();
+  loop();
+}
+
+startBtn.addEventListener('click', startGame);
+
+// --- Main loop ---
+let lastTime = 0, raf;
+function loop(ts = 0) {
+  if (state !== 'play') return;
+  raf = requestAnimationFrame(loop);
+  const dt = Math.min((ts - lastTime) / 16.67, 3);
+  lastTime = ts;
+
+  frame++;
+  score += dt;
+
+  // Difficulty scaling
+  diffTimer += dt;
+  if (diffTimer > 300) {
+    diffTimer = 0;
+    level = Math.min(Math.floor(frame / 300) + 1, 15);
+  }
+
+  // Move player toward mouse
+  const px = lerp(player.x, mx, 0.18);
+  const py = lerp(player.y, my, 0.18);
+  player.x = px; player.y = py;
+
+  // Trail
+  player.trail.unshift({ x: player.x, y: player.y });
+  if (player.trail.length > 12) player.trail.pop();
+
+  // Spawn bullets
+  const spawnInterval = Math.max(40, 90 - level * 5);
+  spawnTimer += dt;
+  if (spawnTimer >= spawnInterval) {
+    spawnTimer = 0;
+    triggerPattern();
+  }
+
+  // Spawn crystals
+  crystalTimer += dt;
+  const crystalInterval = Math.max(120, 220 - level * 8);
+  if (crystalTimer >= crystalInterval) {
+    crystalTimer = 0;
+    if (crystals.length < 4) spawnCrystal();
+  }
+
+  // Invincibility
+  if (invincible > 0) invincible -= dt;
+
+  // Update bullets
+  for (let i = bullets.length - 1; i >= 0; i--) {
+    const b = bullets[i];
+    b.x += b.vx * dt;
+    b.y += b.vy * dt;
+
+    // Homing adjustment
+    if (b.type === 'homing') {
+      b.homingT += dt;
+      if (b.homingT < 60) {
+        const ta = Math.atan2(player.y - b.y, player.x - b.x);
+        const ca = Math.atan2(b.vy, b.vx);
+        let diff = ta - ca;
+        while (diff > Math.PI) diff -= TWO_PI;
+        while (diff < -Math.PI) diff += TWO_PI;
+        const spd = Math.hypot(b.vx, b.vy);
+        const newA = ca + diff * 0.04 * dt;
+        b.vx = Math.cos(newA) * spd;
+        b.vy = Math.sin(newA) * spd;
+      }
+    }
+
+    // Out of bounds
+    if (b.x < -30 || b.x > W + 30 || b.y < -30 || b.y > H + 30) {
+      bullets.splice(i, 1); continue;
+    }
+
+    // Collision with player
+    const dx = b.x - player.x, dy = b.y - player.y;
+    if (Math.hypot(dx, dy) < player.r + b.r - 1) {
+      spawnParticles(b.x, b.y, hsl(b.hue, 100, 60), 8, 3);
+      bullets.splice(i, 1);
+      takeDamage();
+      continue;
+    }
+  }
+
+  // Update crystals
+  for (let i = crystals.length - 1; i >= 0; i--) {
+    const c = crystals[i];
+    c.pulse += 0.08 * dt;
+    c.life -= 0.001 * dt;
+    if (c.life <= 0) { crystals.splice(i, 1); continue; }
+
+    const dx = c.x - player.x, dy = c.y - player.y;
+    if (Math.hypot(dx, dy) < player.r + c.r + 6) {
+      score += 50 + level * 10;
+      spawnParticles(c.x, c.y, hsl(c.hue, 100, 70), 16, 5);
+      crystals.splice(i, 1);
+      updateUI();
+    }
+  }
+
+  // Update particles
+  for (let i = particles.length - 1; i >= 0; i--) {
+    const p = particles[i];
+    p.x += p.vx * dt; p.y += p.vy * dt;
+    p.vx *= 0.93; p.vy *= 0.93;
+    p.life -= p.decay * dt;
+    if (p.life <= 0) particles.splice(i, 1);
+  }
+
+  updateUI();
+  render(dt);
+}
+
+// --- Render ---
+let bgHue = 220;
+function render(dt) {
+  bgHue = (bgHue + 0.1 * dt) % 360;
+
+  // Background
+  ctx.fillStyle = '#000008';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = `hsla(${bgHue},60%,15%,0.3)`;
+  ctx.lineWidth = 1;
+  const grid = 80;
+  for (let x = 0; x < W; x += grid) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+  }
+  for (let y = 0; y < H; y += grid) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  }
+
+  // Particles
+  for (const p of particles) {
+    ctx.globalAlpha = p.life;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r * p.life, 0, TWO_PI);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  // Crystals
+  for (const c of crystals) {
+    const pulse = 1 + 0.2 * Math.sin(c.pulse);
+    ctx.save();
+    ctx.translate(c.x, c.y);
+    ctx.rotate(c.pulse * 0.5);
+    ctx.globalAlpha = c.life;
+
+    // Glow
+    const grd = ctx.createRadialGradient(0, 0, 0, 0, 0, c.r * 2.5 * pulse);
+    grd.addColorStop(0, hsl(c.hue, 100, 80));
+    grd.addColorStop(1, 'transparent');
+    ctx.fillStyle = grd;
+    ctx.beginPath();
+    ctx.arc(0, 0, c.r * 2.5 * pulse, 0, TWO_PI);
+    ctx.fill();
+
+    // Diamond shape
+    ctx.fillStyle = hsl(c.hue, 100, 70);
+    ctx.beginPath();
+    const cr = c.r * pulse;
+    ctx.moveTo(0, -cr * 1.6);
+    ctx.lineTo(cr, 0);
+    ctx.lineTo(0, cr * 1.6);
+    ctx.lineTo(-cr, 0);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.restore();
+    ctx.globalAlpha = 1;
+  }
+
+  // Bullets
+  for (const b of bullets) {
+    const grd = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r * 2);
+    grd.addColorStop(0, hsl(b.hue, 100, 90));
+    grd.addColorStop(0.5, hsl(b.hue, 100, 60));
+    grd.addColorStop(1, 'transparent');
+    ctx.fillStyle = grd;
+    ctx.beginPath();
+    ctx.arc(b.x, b.y, b.r * 2, 0, TWO_PI);
+    ctx.fill();
+
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(b.x, b.y, b.r * 0.4, 0, TWO_PI);
+    ctx.fill();
+  }
+
+  // Player trail
+  for (let i = 0; i < player.trail.length; i++) {
+    const t = player.trail[i];
+    const a = (1 - i / player.trail.length) * 0.5;
+    const r = player.r * (1 - i / player.trail.length) * 0.8;
+    ctx.globalAlpha = a * (invincible > 0 ? (Math.sin(frame * 0.3) * 0.5 + 0.5) : 1);
+    ctx.fillStyle = '#0ff';
+    ctx.beginPath();
+    ctx.arc(t.x, t.y, r, 0, TWO_PI);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  // Player
+  if (invincible <= 0 || Math.sin(frame * 0.4) > 0) {
+    // Outer glow
+    const pgrd = ctx.createRadialGradient(player.x, player.y, 0, player.x, player.y, player.r * 3);
+    pgrd.addColorStop(0, 'rgba(0,255,255,0.4)');
+    pgrd.addColorStop(1, 'transparent');
+    ctx.fillStyle = pgrd;
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, player.r * 3, 0, TWO_PI);
+    ctx.fill();
+
+    // Core
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, player.r, 0, TWO_PI);
+    ctx.fill();
+
+    // Ring
+    ctx.strokeStyle = '#0ff';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, player.r + 3, 0, TWO_PI);
+    ctx.stroke();
+
+    // Hit dot
+    ctx.fillStyle = '#ff0';
+    ctx.beginPath();
+    ctx.arc(player.x, player.y, 2, 0, TWO_PI);
+    ctx.fill();
+  }
+
+  // Level indicator flash
+  if (frame % 300 < 60 && level > 1) {
+    ctx.save();
+    ctx.globalAlpha = Math.sin((frame % 300) * Math.PI / 60) * 0.15;
+    ctx.fillStyle = hsl(bgHue, 80, 60);
+    ctx.fillRect(0, 0, W, H);
+    ctx.restore();
+  }
+
+  // Score display (floating)
+  ctx.fillStyle = `hsla(${bgHue + 60},70%,70%,0.6)`;
+  ctx.font = 'bold 11px Courier New';
+  ctx.letterSpacing = '1px';
+  ctx.textAlign = 'right';
+  ctx.fillText(`${Math.floor(score)}`, W - 10, H - 10);
+  ctx.textAlign = 'left';
+}
+
+// Start render loop for menu
+function menuLoop() {
+  if (state !== 'menu' && state !== 'dead') return;
+  requestAnimationFrame(menuLoop);
+  // Animated background
+  ctx.fillStyle = '#000008';
+  ctx.fillRect(0, 0, W, H);
+  const t = Date.now() * 0.001;
+  ctx.strokeStyle = `hsla(${t * 20 % 360},60%,15%,0.3)`;
+  ctx.lineWidth = 1;
+  const grid = 80;
+  for (let x = 0; x < W; x += grid) {
+    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+  }
+  for (let y = 0; y < H; y += grid) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+  }
+  // Floating demo bullets
+  // (none, keep it clean for menu)
+}
+menuLoop();
+</script>
+</body>
+</html>
