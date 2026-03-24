@@ -1,10 +1,14 @@
-調查完成，已將報告貼到 Issue #2。
+修復完成。
 
-**結論：**
-- Cloudflare 沒問題，問題在 repo 內的 coding agent 行為
-- Issue #1、#3 的 agent 繞過了 `pre-tool-use` hook，直接用 `curl` 呼叫 `api.github.com` 建立獨立留言放完整內容
-- `result.txt` 只留短摘要 → Telegram 只收到摘要
+**根本修復：** `.github/hooks/pre-tool-use.sh` 第 8 行，將 `.toolArgs` 改為 `.arguments`，一行修正讓所有攔截規則恢復生效。
 
-**根本 bug：** `.github/hooks/pre-tool-use.sh` 用 `.toolArgs` 取 key，但 Copilot CLI 實際傳 `.arguments`，導致 bash 指令的攔截規則全部失效。
+**驗證結果：**
+- `curl api.github.com` → ✅ 攔截
+- `gh issue list` → ✅ 攔截
+- 一般 bash 指令 → ✅ 放行
+
+**Commit：** `53d825d`
+
+修復後，Agent 無法再繞過 hook 直接建立 Issue 留言，完整回覆內容只能寫入 `result.txt`，Telegram 就能正確收到了。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
