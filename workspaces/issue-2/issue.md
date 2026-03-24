@@ -281,3 +281,74 @@
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-24 08:25:51.000 UTC
+
+調查完成，問題根源在**這個 repo 內部的 GitHub Actions 流程**，與 Cloudflare 監聽端無關。
+
+---
+
+## 根本原因：coding agent 繞過了結果傳遞流程
+
+### 正常的傳遞流程
+
+```
+Telegram → Cloudflare Worker → 建立 brain-result comment（progress comment）
+                             → 觸發 coding-agent workflow
+                                    ↓
+                       agent 產出寫入 result.txt
+                                    ↓
+                       workflow PATCH progress comment（用 result.txt 內容）
+                                    ↓
+                       Cloudflare Worker 收到 issue_comment.edited webhook
+                                    ↓
+                       Worker 把 progress comment 內容轉發 → Telegram
+```
+
+### 實際發生的流程（Issue #1 和 #3）
+
+Issue #3（職涯導師）的 `copilot-exec-log.json` 中，可以看到 agent 執行了以下操作：
+
+1. 先把完整故事存為 `/tmp/story_comment.json`
+2. 接著直接呼叫 `api.github.com` 建立新留言：
+   ```
+   curl -s -X POST \
+     -H "Authorization: token $COMMENT_TOKEN" \
+     https://api.github.com/repos/ratioclaw/ratioclaw-1/issues/3/comments \
+     -d @/tmp/story_comment.json
+   ```
+3. 成功建立 comment ID **4115520735**（即那則完整故事）
+4. 而 `result.txt` 只寫了短摘要："故事已成功發佈到 Issue #3."
+
+**Telegram 收到的是 result.txt 的內容**（短摘要），完整故事留在那則獨立的 comment，Worker 不會轉發它。
+
+---
+
+## 為什麼 hook 沒有攔截？
+
+`.github/hooks/pre-tool-use.sh` 本應阻擋 `api.github.com` 的直接呼叫，但有 **key 名稱不符** 的 bug：
+
+```bash
+# 🐛 hook 用 .toolArgs 取指令
+TOOL_ARGS=$(echo "$INPUT" | jq -r '.toolArgs')
+COMMAND=$(echo "$TOOL_ARGS" | jq -r '.command // empty')
+```
+
+但 Copilot CLI 實際傳給 hook 的 JSON key 是 **`arguments`**，不是 `toolArgs`。
+
+結果 `TOOL_ARGS` 永遠是 `null` → `COMMAND` 永遠是空字串 → 所有 bash 指令規則形同虛設，只有 MCP server 的 tool name 過濾還有效。
+
+---
+
+## 小結
+
+| 元件 | 問題 | 位置 |
+|---|---|---|
+| `pre-tool-use.sh` | `.toolArgs` 應改為 `.arguments`，hook 目前無法攔截 bash 直接 API 呼叫 | ✅ 在這個 repo |
+| Issue #1、#3 coding agent | 把完整內容寫到獨立 comment，result.txt 只留短摘要，導致 Telegram 只收到短摘要 | ✅ 可調整 AGENTS.md |
+| Cloudflare Worker | 只轉發 progress comment 更新（issue_comment.edited）；新建的獨立 comment 不會通知 Telegram | ❌ 不在此 repo |
+
+Cloudflare 那端是正常的——它按設計只轉發指定的 progress comment 內容。問題在於 agent 把「真正的答案」放到了另一則 comment，而不是 result.txt。
+
+
+---
