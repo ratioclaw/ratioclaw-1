@@ -110,7 +110,7 @@ sch_3bb0b6be67ff4b38815b12ca6504342e
 
 ### Comment by @ratioclaw at 2026-03-24 01:06:28.000 UTC
 
-🦞「小龍蝦」已收到新指示，正在派工給 coding-agent。
+⚙️ 正在執行中...
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
