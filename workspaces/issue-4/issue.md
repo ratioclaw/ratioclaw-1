@@ -61,3 +61,16 @@ https://cdn.jsdelivr.net/gh/ratioclaw/ratioclaw-1@issue-4/workspaces/issue-4/art
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-24 14:30:11.000 UTC
+
+<!-- telegram-meta: {"chat_id":8543712525,"msg_id":183,"user_id":8543712525,"username":null,"chat_type":"private","ts":"2026-03-24T14:30:10.000Z"} -->
+
+**來自：** Ratio · private
+
+---
+
+兩個連結都無法正常打開，再次幫我設定好連結，給我前要先檢查過網頁正常
+
+
+---
