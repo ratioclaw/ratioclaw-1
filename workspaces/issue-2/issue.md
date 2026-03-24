@@ -392,3 +392,10 @@ Cloudflare 那端是正常的——它按設計只轉發指定的 progress comme
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-24 13:45:38.000 UTC
+
+幫忙修復到 issue3 的 branch
+
+
+---
