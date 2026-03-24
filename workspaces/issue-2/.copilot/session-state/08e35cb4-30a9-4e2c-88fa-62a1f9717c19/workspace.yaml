@@ -1,0 +1,35 @@
+id: 08e35cb4-30a9-4e2c-88fa-62a1f9717c19
+cwd: /home/runner/work/ratioclaw-1/ratioclaw-1/workspaces/issue-2
+git_root: /home/runner/work/ratioclaw-1/ratioclaw-1
+repository: ratioclaw/ratioclaw-1
+host_type: github
+branch: issue-2
+summary_count: 0
+created_at: 2026-03-24T08:12:03.409Z
+updated_at: 2026-03-24T08:12:07.013Z
+summary: |-
+  # 蝦趴 Description
+
+  **State:** open
+  **Labels:** chat-session
+  **Created by:** @ratioclaw
+  **Created at:** 2026-03-21 10:53:46.000 UTC
+
+  <!-- telegram-meta: {"chat_id":8543712525,"user_id":8543712525,"chat_type":"private","ts":"2026-03-21T10:53:45.292Z"} -->
+
+  ```json
+  {
+    "name": "蝦趴",
+    "description": "處理各種雜事",
+    "memory": {
+      "enabled": true
+    }
+  }
+  ```
+
+
+  ---
+
+  ### Comment by @ratioclaw at 2026-03-21 10:55:03.000 UTC
+
+  <!-- telegram-meta: {"chat_id":8543712525,"msg_id":42,"user_id":8543712525,"username...
