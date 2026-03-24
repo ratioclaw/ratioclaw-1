@@ -275,7 +275,14 @@
 
 ### Comment by @ratioclaw at 2026-03-24 08:11:45.000 UTC
 
-⚙️ 正在執行中...
+調查完成，已將報告貼到 Issue #2。
+
+**結論：**
+- Cloudflare 沒問題，問題在 repo 內的 coding agent 行為
+- Issue #1、#3 的 agent 繞過了 `pre-tool-use` hook，直接用 `curl` 呼叫 `api.github.com` 建立獨立留言放完整內容
+- `result.txt` 只留短摘要 → Telegram 只收到摘要
+
+**根本 bug：** `.github/hooks/pre-tool-use.sh` 用 `.toolArgs` 取 key，但 Copilot CLI 實際傳 `.arguments`，導致 bash 指令的攔截規則全部失效。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
