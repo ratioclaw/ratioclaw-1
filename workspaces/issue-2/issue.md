@@ -359,3 +359,16 @@ Cloudflare 那端是正常的——它按設計只轉發指定的 progress comme
 
 
 ---
+
+### Comment by @ratioclaw at 2026-03-24 09:07:13.000 UTC
+
+<!-- telegram-meta: {"chat_id":8543712525,"msg_id":157,"user_id":8543712525,"username":null,"chat_type":"private","ts":"2026-03-24T09:07:12.000Z"} -->
+
+**來自：** Ratio · private
+
+---
+
+那這題應該要怎麼修復比較好呢？
+
+
+---
