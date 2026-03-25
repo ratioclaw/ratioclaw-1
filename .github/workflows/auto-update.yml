@@ -185,7 +185,7 @@ jobs:
           if [[ -n "$PERSONALITY" ]]; then
             echo "🦞 延用既有 personality 設定"
           else
-            echo "ℹ️ 未設定 personality，將以空值同步"
+            echo "ℹ️ 未設定 personality，BootstrapWorker 會套用預設 personality"
           fi
 
           jq -n \
