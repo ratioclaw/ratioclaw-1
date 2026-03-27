@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T21:05:22.844Z",
+  "generatedAt": "2026-03-27T21:52:05.427Z",
   "repository": "ratioclaw/ratioclaw-1",
   "issue": {
     "number": 2,
@@ -15,34 +15,27 @@
       "ratioclaw"
     ],
     "commentCount": 0,
-    "updatedAt": "2026-03-24T13:48:19.000Z"
+    "updatedAt": "2026-03-27T01:07:24.000Z"
   },
   "summary": {
-    "status": "Issue 仍在推進中，保留 2 個 active tasks。",
+    "status": "{   \"status\": \"已完成 – 主要任務（提供賺錢方案、產出插畫、調查 Telegram 同步問題、修復 pre‑tool‑use hook）皆已交付，唯一待處理的是將修復 commit cherry‑pick 到 issue‑3 分支。\",   \"recentActivity\": [     \"將修復 commit `d455341` cher…",
     "recentActivity": [
-      "最近沒有新的留言活動。"
+      "沒有足夠資訊可整理近期活動。"
     ],
     "decisions": [
-      "不要碰博弈、地下錢莊、保證高報酬。",
-      "不要用借的，幫我賺錢",
-      "低價零工先不要碰，優先順序是：高單價成交 > 舊客回購 > 轉介紹 > 閒置資產變現。"
+      "目前沒有明確決策。"
     ],
     "completedWork": [
-      "✅ 圖片已產出（Gemini 配額不足，改以本地插畫完成）",
-      "小比比已完成：已在 issue workspace 產出一張「不用 Gemini」的插畫（SVG 格式），表達「很缺錢」的樣子。"
+      "目前沒有可確認的已完成工作。"
     ],
     "openTasks": [
-      "請畫一張圖，表達我很缺錢的模樣",
-      "若要 PNG，可請求匯出 PNG，我會再輸出到 repo 路徑。"
+      "目前沒有可確認的待辦，或資訊不足。"
     ],
     "preferences": [
-      "不要碰博弈、地下錢莊、保證高報酬。",
-      "不要用借的，幫我賺錢",
-      "低價零工先不要碰，優先順序是：高單價成交 > 舊客回購 > 轉介紹 > 閒置資產變現。"
+      "目前沒有可確認的偏好設定。"
     ],
     "openLoops": [
-      "請畫一張圖，表達我很缺錢的模樣",
-      "若要 PNG，可請求匯出 PNG，我會再輸出到 repo 路徑。"
+      "目前沒有可確認的未解議題。"
     ]
   }
 }
