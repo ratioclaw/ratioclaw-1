@@ -1,0 +1,36 @@
+id: 91c4bd21-c560-472f-b168-4e4f8340eefb
+cwd: /home/runner/work/ratioclaw-1/ratioclaw-1/workspaces/issue-5
+git_root: /home/runner/work/ratioclaw-1/ratioclaw-1
+repository: ratioclaw/ratioclaw-1
+host_type: github
+branch: issue-5
+summary_count: 0
+created_at: 2026-03-27T01:11:12.397Z
+updated_at: 2026-03-27T01:11:14.919Z
+summary: |-
+  # 新聞整理 Description
+
+  **State:** open
+  **Labels:** chat-session
+  **Created by:** @ratioclaw
+  **Created at:** 2026-03-27 01:09:50.000 UTC
+
+  <!-- telegram-meta: {"chat_id":8543712525,"user_id":8543712525,"username":null,"chat_type":"private","ts":"2026-03-27T01:09:50.139Z"} -->
+
+  ```json
+  {
+    "name": "新聞整理",
+    "description": "整理特定主題的當日新聞摘要，分享給我，查資料時會確認是「當天」的",
+    "memory": {
+      "enabled": false,
+      "commentLimit": 5
+    }
+  }
+  ```
+
+
+  ---
+
+  ### Comment by @ratioclaw at 2026-03-27 01:10:35.000 UTC
+
+  <!-- telegram-...
