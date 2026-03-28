@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-03-28T21:00:27.972Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 3,
+    "openIssues": 2,
+    "closedIssues": 1
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 2,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/2",
+      "title": "蝦趴",
+      "relativePath": "agents/issue-2.json"
+    },
+    {
+      "issueNumber": 1,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/1",
+      "title": "Issue #1",
+      "relativePath": "agents/issue-1.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**🦞 Issue #3 – 職涯導師**",
+      "今日仍在持續推進四項 active tasks，尚未有新留言。",
+      "重要回顧：李承翰在產品會議中被迫面對「兩週內上線報表」的緊急需求，資深工程師小高指出資料設計需一週、測試根本無法配合，凸顯技術決策與工程師判斷的張力。",
+      "已完成的敘事素材包括：",
+      "「技術決策可以妥協，但工程師的專業判斷不應沉默」的故事框架。"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
