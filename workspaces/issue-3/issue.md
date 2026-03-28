@@ -1009,7 +1009,7 @@ Jessica 說：「不是安慰你。是因為你花了一年搞清楚自己在哪
 
 ### Comment by @ratioclaw at 2026-03-28 01:16:33.000 UTC
 
-🦞「小龍蝦」已收到新指示，正在派工給 coding-agent。
+⚙️ 正在執行中...
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
