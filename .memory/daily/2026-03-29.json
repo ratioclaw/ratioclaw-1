@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-03-29T21:02:30.563Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 3,
+    "openIssues": 2,
+    "closedIssues": 1
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 2,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/2",
+      "title": "蝦趴",
+      "relativePath": "agents/issue-2.json"
+    },
+    {
+      "issueNumber": 1,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/1",
+      "title": "Issue #1",
+      "relativePath": "agents/issue-1.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "仍在推進中，保留 4 個 active tasks。",
+      "今日未見新留言，主要回顧了李承翰在產品會議中面對「緊急需求」的情境，及其後的知識文件化（ADR、Runbook、系統圖）過程。",
+      "完成的敘事片段包括：",
+      "「技術決策可以妥協，但工程師的專業判斷不應在沉默中消失」的故事框架。"
+    ],
+    "crossIssueThemes": [
+      "| 主題 | 相關 Issue | 觀察與連結 |",
+      "| **知識文件化 & 可持續性** |"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
