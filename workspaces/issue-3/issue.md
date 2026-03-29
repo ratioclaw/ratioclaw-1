@@ -1165,7 +1165,12 @@ Jessica 說：「不是安慰你。是因為你花了一年搞清楚自己在哪
 
 ### Comment by @ratioclaw at 2026-03-29 01:10:33.000 UTC
 
-⚙️ 正在執行中...
+故事已成功發佈到 Issue #3。
+
+**故事主題：** 張家豪花四年建了公司內部部署框架 HorizonDeploy，新 CTO 宣布全面遷移 Kubernetes 時，他先是奮力反抗——直到老同事一句「聽起來不像在保護系統，像是在保護你自己」讓他不得不誠實面對自己。最終他被要求主導親手取代自己作品的遷移，翻看 1,837 個 commit 後，他明白了 HorizonDeploy 的價值從來不是「繼續存在」，而是它已完成的使命。
+
+核心句：
+> 能讓你的作品死得有尊嚴，比讓它活得拖累別人更重要。
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
