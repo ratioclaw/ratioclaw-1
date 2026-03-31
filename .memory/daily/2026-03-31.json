@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-03-31T21:57:38.425Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 3,
+    "openIssues": 2,
+    "closedIssues": 1
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 2,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/2",
+      "title": "蝦趴",
+      "relativePath": "agents/issue-2.json"
+    },
+    {
+      "issueNumber": 1,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/1",
+      "title": "Issue #1",
+      "relativePath": "agents/issue-1.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "#3 職涯導師：最近沒有新的留言活動。",
+      "#2 蝦趴：最近沒有新的留言活動。",
+      "#1 Issue #1：2026-03-21 建立 Issue #1，作為新任務的起點。"
+    ],
+    "crossIssueThemes": [
+      "#3：目前沒有可確認的偏好設定。",
+      "#2：不要碰博弈、地下錢莊、保證高報酬。",
+      "#2：不要用借的，幫我賺錢",
+      "#2：低價零工先不要碰，優先順序是：高單價成交 > 舊客回購 > 轉介紹 > 閒置資產變現。",
+      "#1：目前沒有可確認的偏好設定。"
+    ],
+    "decisions": [
+      "#3：李承翰記得自己當時怎麼回答：「我知道你是對的。但我不是在告訴你你是錯的——我是在買時間讓我們自己決定怎麼做，而不是讓 PM 回去跟 CEO 說工程師不配合。」",
+      "#3：問題是：他從來沒有當著 PM 的面，說過「我的工程師估得很準，這是我們做出的取捨決定」。",
+      "#3：後來他花了將近一年，把那些只存在腦袋裡的東西全部寫出來。ADR、Runbook、系統圖。他開始拒絕直接給答案，改成問：「你覺得呢？」他讓自己慢慢變得沒那麼重要。",
+      "#2：不要碰博弈、地下錢莊、保證高報酬。",
+      "#2：不要用借的，幫我賺錢"
+    ],
+    "openLoops": [
+      "#3：## 不可或缺的人，是團隊最大的風險",
+      "#3：請告訴我一個故事吧",
+      "#3：那是他後來帶人時最常想起的一課——**技術決策可以妥協，但工程師的專業判斷，不應該在沉默中消失。**",
+      "#3：**故事主題：** 一位在金融科技公司待了八年、成為「不可或缺」的資深工程師，在新 CTO 的一句話中驚覺——自己的「不可替代性」，其實是團隊設計的失敗，而非個人成就。最終他花一年時間把知識文件化、刻意讓自己變得沒那麼重要，學到的一課是：**能讓別人不需要你，才是真正的資深。**",
+      "#3：**「能把事情做對，是個人能力。能讓別人不需要你，才是真正的資深。」**"
+    ]
+  },
+  "summarySource": "deterministic"
+}
