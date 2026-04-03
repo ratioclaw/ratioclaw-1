@@ -9,8 +9,13 @@ on:
         description: "強制執行更新（忽略版本比對）"
         type: boolean
         default: false
+      request_id:
+        description: "Telegram workflow notification request id"
+        type: string
+        default: ""
 
-run-name: "🦞 更新龍蝦堡核心: ${{ github.repository }}"
+run-name: >-
+  🦞 更新龍蝦堡核心: ${{ github.repository }}${{ github.event_name == 'workflow_dispatch' && inputs.request_id != '' && format(' | req:{0}', inputs.request_id) || '' }}
 
 concurrency:
   group: auto-update-${{ github.repository }}
