@@ -59,7 +59,19 @@ jobs:
         run: |
           set -euo pipefail
 
-          git add -A -- issue.md issue.jsonl .copilot .codex
+          paths_to_stage=()
+          for path in issue.md issue.jsonl .copilot .codex; do
+            if [ -e "$path" ] || git ls-files -- "$path" | grep -q .; then
+              paths_to_stage+=("$path")
+            fi
+          done
+
+          if [ ${#paths_to_stage[@]} -eq 0 ]; then
+            echo "No tracked memory files found."
+            exit 0
+          fi
+
+          git add -A -- "${paths_to_stage[@]}"
 
           if git diff --cached --quiet; then
             echo "No memory files changed."

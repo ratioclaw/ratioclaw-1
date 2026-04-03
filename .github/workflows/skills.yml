@@ -53,14 +53,17 @@ jobs:
       - name: 驗證輸入參數
         shell: bash
         run: |
-          set -euo pipefail
           if [[ -z "${SKILL_NAME}" ]]; then
-            echo "::error::skill_name is required"
-            exit 1
+            echo "::error::[步驟1 - 驗證輸入參數] 缺少技能名稱。請確認安裝請求有正確填寫技能名稱。"
+            echo "INSTALL_FAILED=true" >> "$GITHUB_ENV"
+            echo "INSTALL_ERROR=[步驟1 - 驗證輸入參數] 缺少技能名稱。請確認安裝請求有正確填寫技能名稱。" >> "$GITHUB_ENV"
+            exit 0
           fi
           if [[ -z "${ISSUE_NUMBER}" ]]; then
-            echo "::error::issue_number is required"
-            exit 1
+            echo "::error::[步驟1 - 驗證輸入參數] 缺少 Issue 編號。請確認安裝請求有正確填寫目標 Issue 編號。"
+            echo "INSTALL_FAILED=true" >> "$GITHUB_ENV"
+            echo "INSTALL_ERROR=[步驟1 - 驗證輸入參數] 缺少 Issue 編號。請確認安裝請求有正確填寫目標 Issue 編號。" >> "$GITHUB_ENV"
+            exit 0
           fi
           echo "skill_name=${SKILL_NAME}"
           echo "issue_number=${ISSUE_NUMBER}"
@@ -89,7 +92,7 @@ jobs:
           if [[ ! -d ".tmp/skills-source/skills/${SKILL_NAME}" ]]; then
             echo "::error::Skill '${SKILL_NAME}' not found in ${SKILLS_SOURCE_REPO}"
             echo "INSTALL_FAILED=true" >> "$GITHUB_ENV"
-            echo "INSTALL_ERROR=技能 '${SKILL_NAME}' 不存在於 ${SKILLS_SOURCE_REPO}" >> "$GITHUB_ENV"
+            echo "INSTALL_ERROR=[步驟3 - 尋找技能] 找不到技能「${SKILL_NAME}」。請確認技能名稱是否正確，或聯絡管理員確認此技能是否已上架。" >> "$GITHUB_ENV"
             exit 0
           fi
           echo "SKILL_SOURCE_DIR=.tmp/skills-source/skills/${SKILL_NAME}" >> "$GITHUB_ENV"
@@ -170,7 +173,7 @@ jobs:
               echo "✅ Force-pushed skill files to ${TARGET_BRANCH}"
             else
               echo "INSTALL_FAILED=true" >> "$GITHUB_ENV"
-              echo "INSTALL_ERROR=推送到 ${TARGET_BRANCH} 失敗" >> "$GITHUB_ENV"
+              echo "INSTALL_ERROR=[步驟5 - 安裝技能檔案] 無法將技能檔案儲存到工作區（${TARGET_BRANCH}）。可能是系統權限不足，請聯絡管理員確認 CLAW_SYS_GITHUB_TOKEN 是否有倉庫寫入權限。" >> "$GITHUB_ENV"
             fi
           fi
 
@@ -274,7 +277,11 @@ jobs:
             fi
 
             echo "INSTALL_FAILED=true" >> "$GITHUB_ENV"
-            echo "INSTALL_ERROR=Copilot CLI 修改 issue-${ISSUE_NUMBER}.yml 逾時或失敗" >> "$GITHUB_ENV"
+            if [[ "${COPILOT_EXIT}" -eq 124 ]]; then
+              echo "INSTALL_ERROR=[步驟7 - 設定環境變數] 自動設定環境變數的程序等待超過 5 分鐘逾時。可能是系統目前繁忙，請稍後重試安裝。" >> "$GITHUB_ENV"
+            else
+              echo "INSTALL_ERROR=[步驟7 - 設定環境變數] 自動設定環境變數失敗（錯誤代碼：${COPILOT_EXIT}）。可能是 COPILOT_GITHUB_TOKEN 權限不足，請確認 token 具備完整的 Copilot 使用權限。" >> "$GITHUB_ENV"
+            fi
             exit 0
           done
 
@@ -327,7 +334,9 @@ jobs:
         shell: bash
         run: |
           if [[ "${INSTALL_FAILED:-}" == "true" ]]; then
-            echo "::error::技能安裝失敗: ${INSTALL_ERROR:-未知錯誤}"
+            echo "::error::❌ 技能安裝失敗"
+            echo "::error::原因：${INSTALL_ERROR:-未知錯誤（請查看上方各步驟的 log）}"
+            echo "::error::如需協助，請將此錯誤訊息截圖給管理員。"
             exit 1
           fi
 
