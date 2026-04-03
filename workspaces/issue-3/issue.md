@@ -1933,7 +1933,7 @@ Owen 說：「後來我意識到一件事——那種『我是房間裡最笨的
 
 ### Comment by @ratioclaw at 2026-04-03 01:17:03.000 UTC
 
-🦞「小龍蝦」已收到新指示，正在派工給 coding-agent。
+⚙️ 正在執行中...
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
