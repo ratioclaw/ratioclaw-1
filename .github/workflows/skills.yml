@@ -256,7 +256,7 @@ jobs:
           while [[ "${ATTEMPT}" -le "${MAX_ATTEMPTS}" ]]; do
             echo "Running Copilot CLI attempt ${ATTEMPT}/${MAX_ATTEMPTS}..."
             set +e
-            timeout 5m npx -y @github/copilot@${{ vars.COPILOT_CLI_VERSION || '1.0.14' }} -p "$PROMPT_CONTENT" --yolo --model gpt-5.4-mini
+            timeout 5m npx -y @github/copilot@${{ vars.COPILOT_CLI_VERSION || '1.0.18' }} -p "$PROMPT_CONTENT" --yolo --model gpt-5.4-mini
             COPILOT_EXIT=$?
             set -e
 

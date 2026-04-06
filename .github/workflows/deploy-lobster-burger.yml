@@ -111,14 +111,83 @@ jobs:
             "${RUNNER_TEMP}/github-claw-worker-package/Terraform/." \
             "${GITHUB_WORKSPACE}/Terraform/"
           cp -R \
-            "${RUNNER_TEMP}/github-claw-worker-package/templates/." \
-            "${GITHUB_WORKSPACE}/templates/"
-          cp -R \
             "${RUNNER_TEMP}/github-claw-worker-package/GitHubClawCore/migrations" \
             "${GITHUB_WORKSPACE}/GitHubClawCore/"
           cp \
             "${RUNNER_TEMP}/github-claw-worker-package/GitHubClawCore/index.js" \
             "${GITHUB_WORKSPACE}/index.js"
+
+      - name: Sync installed templates from GitHubClawToolkit
+        run: |
+          set -euo pipefail
+
+          TOOLKIT_REPO="https://github.com/duotify/GitHubClawToolkit.git"
+          TOOLKIT_DIR="${RUNNER_TEMP}/GitHubClawToolkit"
+          LOCAL_TEMPLATE_DIR="${GITHUB_WORKSPACE}/templates"
+
+          mkdir -p "${LOCAL_TEMPLATE_DIR}"
+
+          readarray -t INSTALLED_TEMPLATES < <(
+            find "${LOCAL_TEMPLATE_DIR}" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort || true
+          )
+
+          if [[ "${#INSTALLED_TEMPLATES[@]}" -eq 0 ]]; then
+            echo "沒有偵測到已安裝 templates/*，略過 GitHubClawToolkit 同步。"
+            exit 0
+          fi
+
+          git clone --depth 1 "$TOOLKIT_REPO" "$TOOLKIT_DIR"
+
+          if [[ ! -d "${TOOLKIT_DIR}/templates" ]]; then
+            echo "::error::GitHubClawToolkit 目錄缺少 templates"
+            exit 1
+          fi
+
+          readarray -t TOOLKIT_TEMPLATES < <(
+            find "${TOOLKIT_DIR}/templates" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort || true
+          )
+
+          declare -A TOOLKIT_TEMPLATE_SET
+          for template_name in "${TOOLKIT_TEMPLATES[@]}"; do
+            TOOLKIT_TEMPLATE_SET["$template_name"]=1
+          done
+
+          updated_templates=()
+          skipped_templates=()
+
+          for template_name in "${INSTALLED_TEMPLATES[@]}"; do
+            if [[ -n "${TOOLKIT_TEMPLATE_SET[$template_name]:-}" ]]; then
+              rm -rf "${LOCAL_TEMPLATE_DIR}/${template_name}"
+              mkdir -p "${LOCAL_TEMPLATE_DIR}/${template_name}"
+              cp -R "${TOOLKIT_DIR}/templates/${template_name}/." \
+                "${LOCAL_TEMPLATE_DIR}/${template_name}/"
+              updated_templates+=("${template_name}")
+            else
+              skipped_templates+=("${template_name}")
+            fi
+          done
+
+          {
+            echo "### 模板同步結果（GitHubClawToolkit）"
+            echo ""
+            if (( ${#updated_templates[@]} > 0 )); then
+              echo "#### 已更新模板"
+              for template_name in "${updated_templates[@]}"; do
+                echo "- ${template_name}"
+              done
+              echo ""
+            else
+              echo "- 本次無可更新的已安裝模板。"
+              echo ""
+            fi
+
+            if (( ${#skipped_templates[@]} > 0 )); then
+              echo "#### 已略過模板（名稱不在 toolkit，視為自訂模板）"
+              for template_name in "${skipped_templates[@]}"; do
+                echo "- ${template_name}"
+              done
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit synced workflows
         run: |
