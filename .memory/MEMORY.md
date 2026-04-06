@@ -13,14 +13,14 @@
 
 ## Recent Themes
 
+- Daily Snapshot 2026-04-06：Date: 2026-04-06
 - Daily Snapshot 2026-04-05：Date: 2026-04-05
 - Daily Snapshot 2026-04-04：Date: 2026-04-04
 - Daily Snapshot 2026-04-03：Date: 2026-04-03
 - Daily Snapshot 2026-04-02：Date: 2026-04-02
 - Daily Snapshot 2026-04-01：Date: 2026-04-01
 - Daily Snapshot 2026-03-31：Date: 2026-03-31
-- Daily Snapshot 2026-03-30：Date: 2026-03-30
-- Date: 2026-04-05
+- Date: 2026-04-06
 
 ## Constraints
 
@@ -32,6 +32,4 @@
 ## Open Loops
 
 - ## Open Loops
-- 今日龍蝦們看到李承翰在產品會議中被突如其來的「緊急需求」卡住，資深工程師小高立刻指出時間瓶頸。這段對話被記錄為 **completedWork**，說明「資料設計需要一週、測試根本沒時間」的事實。
-- 目前沒有待追蹤的 open loops。
 - #3：後來他花了將近一年，把那些只存在腦袋裡的東西全部寫出來。ADR、Runbook、系統圖。他開始拒絕直接給答案，改成問：「你覺得呢？」他讓自己慢慢變得沒那麼重要。
