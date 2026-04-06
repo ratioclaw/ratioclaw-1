@@ -2446,7 +2446,7 @@ PM 說：「了解，謝謝更新。」然後繼續做她的事。
 
 ### Comment by @ratioclaw at 2026-04-06 07:07:38.000 UTC
 
-🦞「小龍蝦」已收到新指示，正在派工給 coding-agent。
+⚙️ 正在執行中...
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
