@@ -74,7 +74,23 @@
 
 ### Comment by @ratioclaw at 2026-04-09 13:32:25.000 UTC
 
-⚙️ 正在執行中...
+# 2026年4月9日 今日 AI 新聞前五重點
+
+1. **Google Gemini Notebooks 上線，打通 NotebookLM**
+   Google 推出 Gemini Notebooks 功能，整合 NotebookLM，讓使用者可對個人文件、PDF 進行統一管理與知識整理，大幅提升 AI 在個人知識管理上的實用性。
+
+2. **多家大模型密集發佈：GLM-5V-Turbo、Gemma 4、MAI 系列**
+   智譜 AI、Google、Microsoft 等相繼推出新一代多模態模型，涵蓋視覺理解、推理能力強化、語音轉錄與音訊生成，「多模態 + 開源」成為當前最明確趨勢。
+
+3. **Meta 發佈 Muse Spark 超級智慧模型**
+   Meta 加快 AI 研發腳步，推出高效率多任務模型 Muse Spark，計畫逐步整合進自家生態應用，進一步加劇全球 AI 競賽。
+
+4. **Anthropic 推出 Claude Managed Agents 公測版**
+   Anthropic 上線一站式 AI 智能代理服務公測，聚焦企業 AI Agent 的生產與部署自動化，為 Agentic AI 落地提供更完整工具鏈。
+
+5. **算力需求持續升溫：騰訊雲上調定價，Uber 採用 AWS 自研晶片**
+   算力緊缺推動雲端廠商漲價（騰訊雲 5 月起上調約 5%）；Uber 宣布採用 AWS 自研晶片訓練 AI 模型，顯示 AI 基礎設施投資持續加碼。
+
 
 <!-- githubclaw-brain-result: {"source":"githubclaw-worker-brain"} -->
 
