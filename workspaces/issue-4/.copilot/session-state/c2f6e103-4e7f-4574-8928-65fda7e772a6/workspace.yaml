@@ -1,0 +1,35 @@
+id: c2f6e103-4e7f-4574-8928-65fda7e772a6
+cwd: /home/runner/work/ratioclaw-1/ratioclaw-1/workspaces/issue-4
+git_root: /home/runner/work/ratioclaw-1/ratioclaw-1
+repository: ratioclaw/ratioclaw-1
+host_type: github
+branch: issue-4
+summary_count: 0
+created_at: 2026-04-09T13:44:24.905Z
+updated_at: 2026-04-09T13:44:28.702Z
+summary: |-
+  # 亂來蝦 Description
+
+  **State:** open
+  **Labels:** chat-session
+  **Created by:** @ratioclaw
+  **Created at:** 2026-03-24 14:15:20.000 UTC
+
+  <!-- telegram-meta: {"chat_id":8543712525,"user_id":8543712525,"chat_type":"private","ts":"2026-03-24T14:15:20.102Z"} -->
+
+  ```json
+  {
+    "name": "亂來蝦",
+    "description": "嘗試各種新功能，探索 AI agent極限",
+    "memory": {
+      "enabled": false
+    }
+  }
+  ```
+
+
+  ---
+
+  ### Comment by @ratioclaw at 2026-03-24 14:17:16.000 UTC
+
+  <!-- telegram-meta: {"chat_id":8543712525,"msg_id":181,"user_id":8...
