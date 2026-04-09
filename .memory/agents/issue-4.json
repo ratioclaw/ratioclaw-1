@@ -2,21 +2,23 @@
   "generatedAt": "2026-04-09T22:00:51.788Z",
   "repository": "ratioclaw/ratioclaw-1",
   "issue": {
-    "number": 1,
-    "title": "Issue #1",
-    "url": "https://github.com/ratioclaw/ratioclaw-1/issues/1",
-    "state": "closed",
+    "number": 4,
+    "title": "亂來蝦",
+    "url": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+    "state": "open",
     "author": "ratioclaw",
-    "labels": [],
+    "labels": [
+      "chat-session"
+    ],
     "assignees": [],
     "participants": [
       "ratioclaw"
     ],
     "commentCount": 0,
-    "updatedAt": "2026-03-27T01:06:59.000Z"
+    "updatedAt": "2026-04-09T13:49:53.000Z"
   },
   "summary": {
-    "status": "Issue 已結案，主要保留關鍵決策與後續追蹤事項。",
+    "status": "Issue 仍在推進中，保留 1 個 active tasks。",
     "recentActivity": [
       "最近沒有新的留言活動。"
     ],
@@ -24,16 +26,16 @@
       "目前沒有明確決策。"
     ],
     "completedWork": [
-      "目前沒有可確認的已完成工作。"
+      "已完成：製作網頁遊戲「VOID ESCAPE 虛空逃脫」"
     ],
     "openTasks": [
-      "目前沒有可確認的待辦，或資訊不足。"
+      "前一次任務執行失敗了，請分析是發生什麼問題，然後解決它"
     ],
     "preferences": [
       "目前沒有可確認的偏好設定。"
     ],
     "openLoops": [
-      "目前沒有可確認的未解議題。"
+      "前一次任務執行失敗了，請分析是發生什麼問題，然後解決它"
     ]
   }
 }
