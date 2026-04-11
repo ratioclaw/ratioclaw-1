@@ -13,14 +13,14 @@
 
 ## Recent Themes
 
+- Daily Snapshot 2026-04-11：Date: 2026-04-11
 - Daily Snapshot 2026-04-10：Date: 2026-04-10
 - Daily Snapshot 2026-04-09：Date: 2026-04-09
 - Daily Snapshot 2026-04-08：Date: 2026-04-08
 - Daily Snapshot 2026-04-07：Date: 2026-04-07
 - Daily Snapshot 2026-04-06：Date: 2026-04-06
 - Daily Snapshot 2026-04-05：Date: 2026-04-05
-- Daily Snapshot 2026-04-04：Date: 2026-04-04
-- Date: 2026-04-10
+- Date: 2026-04-11
 
 ## Constraints
 
@@ -32,4 +32,5 @@
 ## Open Loops
 
 - ## Open Loops
+- 目前沒有待追蹤的 open loops。
 - #3：後來他花了將近一年，把那些只存在腦袋裡的東西全部寫出來。ADR、Runbook、系統圖。他開始拒絕直接給答案，改成問：「你覺得呢？」他讓自己慢慢變得沒那麼重要。
