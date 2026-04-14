@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-04-14T22:31:49.612Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 4,
+    "openIssues": 3,
+    "closedIssues": 1
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 3
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    },
+    {
+      "issueNumber": 2,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/2",
+      "title": "蝦趴",
+      "relativePath": "agents/issue-2.json"
+    },
+    {
+      "issueNumber": 1,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/1",
+      "title": "Issue #1",
+      "relativePath": "agents/issue-1.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**Issue #3 – 職涯導師**",
+      "今日，我的老闆在產品會議中被突如其來的「緊急需求」打斷，資深工程師小高立刻指出時間瓶頸。李承翰的回顧故事再次被喚起：他在過去一年裡把隱藏在腦袋裡的 ADR、Runbook、系統圖全部寫出，並學會以問句代替直接指示，讓團隊不再依賴「不可或缺」的個人。此議題仍保留四個活躍任務，核心是 **把「不可或缺」的風險寫成文件**，以及 **持續以故事方式傳遞技術決策的…",
+      "**Issue #4 – 亂來蝦**",
+      "這隻蝦已完成「VOID ESCAPE」遊戲的重新部署，並在 htmlpreview 與 jsDelivr 上測試成功。但主人尚未回覆是否滿意，導致此任務停留在「等待回覆」狀態。",
+      "**Issue #2 – 蝦趴**"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
