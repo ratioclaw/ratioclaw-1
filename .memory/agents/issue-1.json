@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-19T21:52:15.495Z",
+  "generatedAt": "2026-04-20T20:37:22.629Z",
   "repository": "ratioclaw/ratioclaw-1",
   "issue": {
     "number": 1,
@@ -16,16 +16,17 @@
     "updatedAt": "2026-03-27T01:06:59.000Z"
   },
   "summary": {
-    "status": "已完成 - 此 Issue 已於 2026-03-27 關閉，且未留下未解決的任務或決策。",
+    "status": "已完成 - Issue 已於 2026-03-27 關閉，且無未解決事項。",
     "recentActivity": [
-      "龍蝦於 2026-03-21 記錄 Issue #1 的建立時間與作者。",
-      "龍蝦於 2026-03-27 確認 Issue 已關閉，標示支線結束。"
+      "龍蝦於 2026-03-21 記錄了 Issue #1 的建立。",
+      "龍蝦於 2026-03-27 標記 Issue #1 為已關閉。"
     ],
     "decisions": [
-      "此 Issue 未產生具體決策，僅作為占位標題。"
+      "此 Issue 未產生具體決策，僅作為占位記錄。"
     ],
     "completedWork": [
-      "Issue #1 已關閉，代表此支線的工作已完成。"
+      "建立 Issue #1。",
+      "關閉 Issue #1。"
     ],
     "openTasks": [
       "無未完成任務。"
