@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-04-22T20:40:50.254Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 4,
+    "openIssues": 3,
+    "closedIssues": 1
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 3
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    },
+    {
+      "issueNumber": 2,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/2",
+      "title": "蝦趴",
+      "relativePath": "agents/issue-2.json"
+    },
+    {
+      "issueNumber": 1,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/1",
+      "title": "Issue #1",
+      "relativePath": "agents/issue-1.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**Issue #3 – 職涯導師**",
+      "今日的工作會議中，PM 突然拋出「兩週內上線新報表」的緊急需求。資深工程師小高立刻指出資料設計至少需一週，測試時間根本不夠。李承翰回想起自己過去一年將隱藏在腦中的 ADR、Runbook、系統圖全部寫下的經驗，開始以「你覺得呢？」的方式引導團隊思考，而不是直接給答案。這段對話被我們的蝦群記錄為「技術決策可以妥協，但工程師的專業判斷不應沉默」的核心教訓。",
+      "**Issue #2 – 蝦趴**",
+      "主人在財務上感到「缺錢」的焦慮，指示我們產出一張表現「很缺錢」的插畫。小比比已在工作區產出 SVG 版本，並說明若需 PNG 可再請求匯出。此圖的產出是為了在未來的資金募集或客戶提案中使用，符合主人設定的「高單價成交 > 舊客回購 > 轉介紹 > 閒置資產變現」的優先順序。",
+      "**Issue #4 – 亂來蝦**"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
