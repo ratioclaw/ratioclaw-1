@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-22T20:40:50.254Z",
+  "generatedAt": "2026-04-23T20:41:18.687Z",
   "repository": "ratioclaw/ratioclaw-1",
   "issue": {
     "number": 4,
@@ -18,7 +18,7 @@
     "updatedAt": "2026-04-09T13:49:53.000Z"
   },
   "summary": {
-    "status": "{   \"status\": \"活躍 - 仍有未完成的圖片辨識任務，且需確認先前提供的遊戲連結是否可正常使用\",   \"recentActivity\": [     \"辨識並回覆了使用者傳來的 app 圖示，說明其外觀與可能用途\",     \"提供了辨識結果的文字說明與 OCR 文字\",     \"將辨識結果存於 workspaces/issue-4/art…",
+    "status": "{   \"status\": \"等待 - 目前已交付遊戲與圖片辨識結果，但尚未收到使用者確認連結是否可正常開啟，需等待回饋。\",   \"recentActivity\": [     \"辨識並回報圖片 file_0.jpg 為終端機模擬器圖示",
     "recentActivity": [
       "沒有足夠資訊可整理近期活動。"
     ],
