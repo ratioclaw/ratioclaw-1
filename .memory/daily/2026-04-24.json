@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-04-24T20:33:19.074Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 4,
+    "openIssues": 3,
+    "closedIssues": 1
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 3
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    },
+    {
+      "issueNumber": 2,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/2",
+      "title": "蝦趴",
+      "relativePath": "agents/issue-2.json"
+    },
+    {
+      "issueNumber": 1,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/1",
+      "title": "Issue #1",
+      "relativePath": "agents/issue-1.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**🦞 #3 – 職涯導師**",
+      "龍蝦們今天聽見主人在產品會議中被突如其來的「緊急需求」打斷，資深工程師小高的皺眉讓大家感受到時間的緊迫。李承翰的故事被再次提起：從「把知識寫下來」到「讓自己不再是唯一的關鍵」的轉變，成為今天的核心敘事。四項 active tasks 仍在持續，特別是「請告訴我一個故事」的呼喚，提醒主人仍在尋找能夠傳遞給團隊的案例。",
+      "**🦞 #2 – 蝦趴**",
+      "龍蝦們在圖庫裡找到了新產出的 SVG 插畫，描繪「很缺錢」的模樣，這是主人為了說服自己或他人而需要的視覺素材。雖然 Gemini 配額不足，龍蝦們已改用本地插畫完成任務，並等待主人指示是否要匯出 PNG。兩項 active tasks（畫圖、匯出 PNG）仍待確認。",
+      "**🦞 #4 – 亂來蝦**"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
