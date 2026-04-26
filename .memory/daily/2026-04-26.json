@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-04-26T20:25:32.640Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "今日的對話仍在持續推進，四項 active tasks 仍待完成。",
+      "近期沒有新留言，代表主人暫時未再向此 agent 提問。",
+      "已完成的敘事片段包括：",
+      "產品會議中突如其來的「緊急需求」與資深工程師小高的即時回應。"
+    ],
+    "crossIssueThemes": [
+      "| 主題 | 相關 Issue | 觀察與關聯 |"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
