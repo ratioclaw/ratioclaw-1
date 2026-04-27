@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-04-27T20:46:53.595Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "今日的龍蝦們發現，李承翰在產品會議中被突如其來的「緊急需求」卡住，資深工程師小高立刻指出時間瓶頸。這件事觸發了導師的回顧：他過去一年把隱藏在腦袋裡的 ADR、Runbook、系統圖全部寫出，並開始以提問代替直接給答案，讓團隊成員自行思考。龍蝦們記錄了導師仍在推進的四項 active tasks，並提醒仍有「不可或缺的人是團隊最大風險」的未解循環。",
+      "**#4 – 亂來蝦**",
+      "今日的蝦子們回顧了最近完成的網頁遊戲「VOID ESCAPE 虛空逃脫」。然而，上一輪任務執行失敗的根因仍未釐清，仍保留一項 active task：分析失敗原因並解決。沒有新的對話活動，也沒有新決策產出。"
+    ],
+    "crossIssueThemes": [
+      "1. **知識文件化與自我降維**",
+      "#3 中的導師正透過文件化（ADR、Runbook）降低個人不可或缺性。",
+      "#4 的失敗分析需求同樣需要系統化的紀錄與流程，暗示兩者都在推動「把隱性知識顯性化」的共同目標。",
+      "2. **時間與資源的緊迫感**",
+      "#3 的緊急報表需求暴露出開發與測試時間的衝突。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
