@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-04-29T20:48:05.904Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "今日的蝦子們發現主人在職涯導師的議題上仍在深耕四項活躍任務。最近沒有新留言，代表討論暫時靜止。已完成的敘事包括：",
+      "產品會議中突如其來的「緊急需求」被資深工程師小高指出時間不敷，提醒主人注意需求可行性。",
+      "主人回顧過去一年將隱藏在腦中的 ADR、Runbook、系統圖全部寫出，並開始以提問代替直接給答案的方式，讓自己在團隊中逐漸「不那麼重要」。",
+      "透過故事化的方式，主人正嘗試將「不可或缺」的危機轉化為團隊自立的教訓。"
+    ],
+    "crossIssueThemes": [
+      "1. **知識文件化與自動化**",
+      "#3 中的 ADR、Runbook、系統圖文件化與 #4 的遊戲開發都指向「把隱性知識顯性化」的共同目標。兩者皆在嘗試降低對單一人物的依賴，提升團隊或使用者的自助能力。",
+      "2. **需求可行性與風險管理**",
+      "#3 的緊急報表需求與 #4 的任務失敗分析，都在提醒主人：在快速交付前"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
