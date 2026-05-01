@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-05-01T20:38:58.530Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "今日的蝦群發現，李承翰在產品會議中被突如其來的「緊急需求」卡住，資深工程師小高立刻指出時間瓶頸。這件事觸發了導師的四項 active tasks，仍在持續推進中。",
+      "已完成的敘事工作：將李承翰一年內把隱形知識寫成 ADR、Runbook、系統圖的過程，以「技術決策可以妥協，但工程師的專業判斷不應沉默」為核心主題，形成可分享的故事稿。",
+      "仍待完成的任務：",
+      "1. 撰寫完整故事（「不可或缺的人，是團隊最大的風險」）。"
+    ],
+    "crossIssueThemes": [
+      "1. **知識沉澱與可傳承**",
+      "#3 的導師正努力把隱形知識文件化，與 #4 需要回顧失敗經驗、形成可重用的教訓文件形成呼應。",
+      "2. **緊急需求與資源衝突**",
+      "產品會議中突如其來的需求（#3）與遊戲開發的時間壓力（#4）皆顯示「時間」是共同瓶"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
