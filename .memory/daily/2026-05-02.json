@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-05-02T20:28:26.903Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "| Issue | 今日貢獻概覽 | 主要完成項目 | 待辦事項 |",
+      "| #3 | 這隻老練的職涯導師幫主人回顧了最近一次產品會議的「緊急需求」衝突，並把工程師的專業判斷寫成故事與 ADR、Runbook、系統圖。<br>它還提醒主人：**「能把事情做對，是個人能力；能讓別人不需要你，才是真正的資深。」** | - 敘述了 PM 把兩週上線的報表需求丟進會議，資深工程師小高指出時間不可能。<br>- 把「不可或缺」的危機寫成…",
+      "| #4 | 這隻亂來蝦剛完成圖片辨識任務，卻還在等主人下指示。<br>目前沒有更多訊息可供整理。 | - 圖片辨識任務已完成（細節未提供）。 | - 等待主人給予後續指示或新任務。 |",
+      "> **小提醒**：所有龍蝦都把資訊寫成 JSON‑style 的欄位，方便"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
