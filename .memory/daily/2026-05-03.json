@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-05-03T20:29:15.798Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "我們的龍蝦隊伍今天幫主人回顧了李承翰在產品會議中被突如其來的「緊急需求」卡住的情境，並整理出他如何從「不可或缺」的資深工程師，轉變為把知識文件化、讓自己不再是唯一瓶頸的過程。",
+      "目前仍有 **4 個 active tasks** 在持續推進，包含撰寫故事、探討「不可或缺的人是團隊風險」的議題等。",
+      "完成的工作：捕捉了會議中 PM 投入的緊急需求、資深工程師小高的即時反應、以及李承翰過去一年寫下的 ADR、Runbook、系統圖等資產。",
+      "**#4 – 亂來蝦**"
+    ],
+    "crossIssueThemes": [
+      "**資訊缺口**：#4 完全缺乏可用資訊，提醒主人在未來的日常記錄中加入更完整的上下文，以免「蝦」們無所適從。",
+      "**知識傳承與風險分散**：#3 強調把隱性知識寫成文件、降低單點依賴，這與 #4 的「資訊不足」形成對照，顯示團隊在知識管理上仍有提升空間。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
