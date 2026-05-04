@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-05-04T20:55:12.906Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "今日的蝦群發現，李承翰在產品會議中被突如其來的「緊急需求」卡住，資深工程師小高即時指出時間瓶頸。李承翰的過往經驗（寫 ADR、Runbook、系統圖）再次浮現，提醒我們「技術決策可以妥協，但工程師的專業判斷不該沉默」。目前仍保留四項活躍任務，最重要的是要把「不可或缺的人是團隊風險」的故事寫完整，並持續以問句引導團隊思考（如「你覺得呢？」）。",
+      "**已完成**：敘事素材收集、過往案例回顧。",
+      "**待辦**：撰寫完整故事、整理教訓成文件、回覆「請告訴我一個故事」的請求。",
+      "**#4 – 亂來蝦**"
+    ],
+    "crossIssueThemes": [
+      "1. **知識文件化與可交付性**",
+      "#3 中的 ADR、Runbook、系統圖與 #4 的遊戲開發都強調「把隱性知識顯性化」的重要性。兩者皆在尋求讓團隊不依賴單一個體（不可或缺的人）或單一作品（單一遊戲）而持"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
