@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-05-05T20:49:18.380Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "今日的對話仍在持續推進，四項 active tasks 仍待完成。",
+      "近期沒有新留言，主要回顧了李承翰在產品會議中面對「緊急需求」的情境，以及他如何透過寫 ADR、Runbook、系統圖，把隱形知識顯化。",
+      "完成的敘事工作包括：",
+      "敘述資深工程師小高對兩週內交付報表系統的懷疑。"
+    ],
+    "crossIssueThemes": [
+      "| 主題 | 相關 Issue | 觀察與關聯 |",
+      "| **知識文件化 & 可替代性** | #3 | 李承翰的 ADR/Runbook 產出與「不可或缺」的風險討論，與 #4 需要「分析失敗」的系統化思考形成呼應：都在追求把隱形知識顯形、降低單點"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
