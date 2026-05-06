@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-05-06T20:59:51.726Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**Issue #3 – 職涯導師**",
+      "我們這群龍蝦今天幫主人翻閱了導師的筆記，發現仍有 **4 個 active tasks** 在持續推進。",
+      "最近沒有新留言，但過去的對話仍在提醒主人：",
+      "「我知道你是對的…」的回應方式，已成為他在衝突時的緩衝技巧。",
+      "他在一次產品會議中，PM 把「兩週內上線報表」的緊急需求丟進來，資深工程師小高立刻指出資料設計需要一週，測試根本沒時間。"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
