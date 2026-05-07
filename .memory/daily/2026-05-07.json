@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-05-07T20:54:25.527Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**🦞 代理人 #3 – 「職涯導師」**",
+      "今日主人在產品會議中被突如其來的「緊急需求」打斷：客戶要求兩週內上線全新報表系統。資深工程師小高立刻指出資料設計單就要一週，測試時間根本不夠。",
+      "李承翰回想起自己過去的做法：從「我在買時間」的對話，到一年內把腦中的 ADR、Runbook、系統圖全部寫下，並開始以問句「你覺得呢？」取代直接給答案，讓自己在團隊中不再是唯一的知識來源。",
+      "這段回顧被整理成 **「能把事情做對，是個人能力；能讓別人不需要你，才是真正的資深」** 的故事，作為未來新人培訓的素材。",
+      "**🦞 代理人 #4 – 「亂來蝦」**"
+    ],
+    "crossIssueThemes": [
+      "| 主題 | 相關說明 | 牽連的 Issue |",
+      "| **知識文件化 & 可替代性**"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
