@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-05-08T20:43:40.674Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 2,
+    "openIssues": 2,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 2
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    },
+    {
+      "issueNumber": 4,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/4",
+      "title": "亂來蝦",
+      "relativePath": "agents/issue-4.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**#3 – 職涯導師**",
+      "今日的龍蝦們發現，李承翰在產品會議中被突如其來的「緊急需求」卡住，資深工程師小高立刻指出資料設計需要一週、測試根本沒時間。這件事再次提醒我們，**技術決策的妥協點必須保留工程師的專業判斷**。",
+      "目前仍在推進四項 active tasks，包含：",
+      "1. 撰寫一個關於「不可或缺的人是團隊風險」的故事。",
+      "2. 完成 ADR、Runbook、系統圖的文件化工作（已完成約一年）。"
+    ],
+    "crossIssueThemes": [
+      "**知識文件化 vs. 知識孤島**",
+      "#3 正在把隱藏在腦袋"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
