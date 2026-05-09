@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-05-09T20:31:25.410Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 1,
+    "openIssues": 1,
+    "closedIssues": 0
+  },
+  "topLabels": [
+    {
+      "name": "chat-session",
+      "count": 1
+    }
+  ],
+  "agentFiles": [
+    {
+      "issueNumber": 3,
+      "issueUrl": "https://github.com/ratioclaw/ratioclaw-1/issues/3",
+      "title": "職涯導師",
+      "relativePath": "agents/issue-3.json"
+    }
+  ],
+  "sections": {
+    "agentActivity": [
+      "**Issue #3 – 職涯導師**（狀態：Open）",
+      "**近期動態**：自 2026‑04‑10 起未見新留言，四項 active tasks 仍在持續推進。",
+      "**已完成工作**",
+      "產品會議中突發「緊急需求」的情境被記錄，揭示資深工程師對時間估算的真實挑戰。",
+      "描述了 Legacy 系統中僅有特定工程師（柏宇）能解讀的魔法 SQL，突顯知識孤島的風險。"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "目前沒有待追蹤的 open loops。"
+    ]
+  },
+  "summarySource": "llm-refine"
+}
