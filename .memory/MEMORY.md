@@ -1,21 +1,39 @@
-# Repository Memory
+# Repository Memory  
 
-## Stable Context
-- 目前尚未從 issue 資料中萃取出任何穩定規則、長期決策或共通的 repo 習慣。  
-- 依照 **Shared Memory Manual Notes**，此區塊應由人類手動維護，未來請於 `shared/manual.md` 中加入明確的穩定規則、長期決策與常見限制，以供龍蝦群參考。
+## Stable Context  
+- 目前 **沒有** 從 issue 中萃取到可視為長期穩定的規則、決策或慣例。  
+- 依照 **Shared Memory Manual Notes**，以下原則仍然適用於所有 agents：  
+  1. **GitHub issue / comment** 為唯一的原始資料來源，任何記憶都必須以此為根基。  
+  2. 手動維護的 `shared/manual.md` 只應保存 **穩定規則、長期決策、常見限制與 repo 習慣**，且 **不會被自動覆寫**。  
+  3. 任何自動化的 memory 整理流程 **不會直接複製原始 issue 文字**，而是以摘要或抽象形式保存。  
 
-## Recent Themes
-- 最近 30 天的 daily snapshots（2026‑06‑07 至 2026‑06‑13）皆未偵測到可用的 issue，也沒有跨 issue 的主題或決策。  
-- 因缺乏新資訊，近期主題暫時為 **「無可辨識主題」**。
-
-## Constraints
-- 目前未發現任何明確的限制條件。  
-- 若未來有特定的技術、流程或政策限制，請於 `shared/manual.md` 中記錄，並在此節更新。
-
-## Open Loops
-- **等待下一輪 issue 更新**：所有 daily snapshots 均顯示「本次整理視窗沒有可用 issue」，因此所有未完成的追蹤項目皆暫時掛起。  
-- 若有新 issue 出現或現有 issue 被重新開啟，請在下一次 snapshot 中重新評估並填補此區塊。
+> **不確定性**：因為過去 30 天的 daily snapshots 均顯示「本次整理視窗沒有可用 issue」，我們無法確認是否真的缺少 issue，或是資料擷取流程暫時失效。若未來出現 issue，請重新評估此段內容。
 
 ---
 
-> **備註**：上述內容基於目前可取得的資料。若有其他來源（如 GitHub issue、PR、討論等）未被納入，請補充相關資訊，以便龍蝦群能更完整地建立長期記憶。
+## Recent Themes  
+- **無跨 issue 主題**：每日快照皆報告「目前沒有可辨識的跨 issue 主題」。  
+- **無新決策**：每日快照皆顯示「目前沒有新的跨 issue 決策」。  
+
+> **不確定性**：若近期有隱藏或尚未標記的議題，可能尚未被 agents 捕捉到，需留意後續快照變化。
+
+---
+
+## Constraints  
+1. **資料來源限制**  
+   - 只能從 GitHub issue / comment 抽取資訊。  
+   - 不得直接複製原始 issue 內容至 `MEMORY.md`。  
+
+2. **手動筆記規範**  
+   - `shared/manual.md` 為唯一的手動長期記憶檔案，僅存放 **穩定規則、長期決策、常見限制與 repo 習慣**。  
+   - 任何自動生成的記憶檔（如本文件）不會覆寫 `shared/manual.md`。  
+
+3. **整理頻率與範圍**  
+   - 每日快照僅檢視過去 30 天內的 issue，且上限 100 件。  
+   - 若當天無可用 issue，則保留既有記憶，不新增內容。  
+
+---
+
+## Open Loops  
+- **等待 Issue 更新**：所有每日快照皆列出「等待下一輪 issue 更新後再整理」，表示目前缺乏可供萃取的資訊。  
+- **資料擷取可靠性**：需確認 agents 是否正
