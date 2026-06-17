@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-06-17T21:49:24.766Z",
+  "window": {
+    "repository": "ratioclaw/ratioclaw-1",
+    "issueState": "all",
+    "issueLimit": 100,
+    "sinceDays": 30
+  },
+  "counts": {
+    "consideredIssues": 0,
+    "openIssues": 0,
+    "closedIssues": 0
+  },
+  "topLabels": [],
+  "agentFiles": [],
+  "sections": {
+    "agentActivity": [
+      "本次整理視窗沒有可用 issue，先保留既有記憶。"
+    ],
+    "crossIssueThemes": [
+      "目前沒有可辨識的跨 issue 主題。"
+    ],
+    "decisions": [
+      "目前沒有新的跨 issue 決策。"
+    ],
+    "openLoops": [
+      "等待下一輪 issue 更新後再整理。"
+    ]
+  },
+  "summarySource": "deterministic"
+}
