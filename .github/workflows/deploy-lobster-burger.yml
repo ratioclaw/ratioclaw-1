@@ -216,7 +216,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ inputs.cloudflare_api_token || secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ inputs.cloudflare_account_id || secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLAW_SYS_GITHUB_TOKEN: ${{ inputs.claw_sys_github_token || secrets.CLAW_SYS_GITHUB_TOKEN }}
-          COPILOT_GITHUB_TOKEN: ${{ inputs.copilot_github_token || secrets.COPILOT_GITHUB_TOKEN || inputs.claw_sys_github_token || secrets.CLAW_SYS_GITHUB_TOKEN }}
+          COPILOT_GITHUB_TOKEN: ${{ inputs.copilot_github_token || secrets.COPILOT_GITHUB_TOKEN }}
           GH_WEBHOOK_SECRET: ${{ inputs.github_webhook_secret || secrets.GH_WEBHOOK_SECRET }}
           TELEGRAM_BOT_TOKEN: ${{ inputs.telegram_bot_token || secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_WEBHOOK_SECRET: ${{ inputs.telegram_webhook_secret || secrets.TELEGRAM_WEBHOOK_SECRET }}
@@ -237,7 +237,6 @@ jobs:
             CLOUDFLARE_API_TOKEN \
             CLOUDFLARE_ACCOUNT_ID \
             CLAW_SYS_GITHUB_TOKEN \
-            COPILOT_GITHUB_TOKEN \
             GH_WEBHOOK_SECRET \
             TELEGRAM_BOT_TOKEN \
             TELEGRAM_WEBHOOK_SECRET \
@@ -248,7 +247,7 @@ jobs:
             gh secret set "${secret_name}" --repo "${GITHUB_REPOSITORY}" --body "${!secret_name}"
           done
 
-          for optional_secret in GEMINI_API_KEY FELO_API_KEY
+          for optional_secret in COPILOT_GITHUB_TOKEN GEMINI_API_KEY FELO_API_KEY
           do
             if [[ -n "${!optional_secret}" ]]; then
               gh secret set "${optional_secret}" --repo "${GITHUB_REPOSITORY}" --body "${!optional_secret}"
