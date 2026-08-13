@@ -1,29 +1,40 @@
-# Repository Memory
+# Repository Memory  
 
-## Stable Context
-- **Repository**: `ratioclaw/ratioclaw-1`  
-- **記憶管理流程**  
-  - 每日由各 issue agent 產出 snapshot，彙整當天的 issue 狀態與跨 issue 主題。  
-  - `shared/manual.md` 為人工維護的長期記憶檔，僅保存 **穩定規則、長期決策、常見限制與 repo 習慣**，不會被自動覆寫。  
-  - 原始資料來源必須是 **GitHub Issue / Comment**，手動筆記僅作為摘要與指引。  
-- **目前狀態**（截至 2026‑08‑12）  
-  - 最近 30 天內 **無可用 issue**，因此每日 snapshot 均顯示「先保留既有記憶」。  
-  - 沒有跨 issue 主題、決策或標籤被辨識。  
+## Stable Context  
+- 目前 **沒有** 從 issue 中萃取出的長期穩定規則。  
+- 依照 **Shared Memory Manual Notes**，以下原則仍然適用且應被視為永久性約束：  
+  1. **GitHub issue / comment** 為唯一的原始資料來源，任何記憶內容皆須以此為根基。  
+  2. **Shared manual.md** 只用來手動維護長期記憶，**不會** 被自動覆寫。  
+  3. 記憶檔案 **不能** 直接複製完整的 issue 文字，必須以精煉、抽象的方式呈現。  
+  4. `compact‑memory` 工作流程會讀取此手動筆記，但不會改寫它。  
 
-## Recent Themes
-- **無新出現的跨 issue 主題**：過去一週的所有 snapshot 均未偵測到重複或持續的議題。  
-- **持續的空白狀態**：每日皆報告「本次整理視窗沒有可用 issue」，顯示目前工作項目暫停或尚未產生。  
+> **不確定性**：除上述手動筆記外，沒有其他可驗證的穩定事實可供收錄。  
 
-## Constraints
+---
+
+## Recent Themes  
+- 在 **2026‑08‑07 至 2026‑08‑13** 的每日快照中，**所有** 觀測窗口皆未檢測到可用的 issue。  
+- 因此 **沒有** 可辨識的跨 issue 主題、決策或重複出現的討論焦點。  
+
+> **不確定性**：若未來出現新 issue，可能會形成新的主題；目前僅能說「近期無主題」。  
+
+---
+
+## Constraints  
 1. **資料來源限制**  
-   - 只能從 GitHub Issue / Comment 抽取資訊，任何手動筆記皆屬二次摘要，不能直接作為事實依據。  
-2. **手動筆記的使用規則**  
-   - `shared/manual.md` 只保留 **穩定規則、長期決策、常見限制與 repo 習慣**，不應複製完整 issue 原文。  
-   - 這份手動筆記會被 `compact-memory` 工作流讀取，但不會被自動覆寫。  
-3. **記憶更新頻率**  
-   - 每日 snapshot 只在有可用 issue 時才會產生新資訊，否則保留既有記憶。  
-4. **資訊不確定性**  
-   - 若某件事僅在最新一天短暫出現且未形成穩定事實，必須歸入 **Open Loops**，不列為穩定規則。  
+   - 只能從 GitHub issue / comment 抽取資訊。  
+   - 不得直接搬錄原始 issue 文字。  
 
-## Open Loops
-- **等待下一輪 issue 更新**：所有每日 snapshot 均指出「等待下一輪 issue 更新後再
+2. **記憶檔案維護規則**  
+   - `shared/manual.md` 為手動維護的長期記憶，系統不會自動修改。  
+   - `MEMORY.md` 必須是 **精煉、可重用** 的長期記憶，避免逐段複製原文。  
+
+3. **工作流程限制**  
+   - `compact‑memory` 只會讀取手動筆記，不會覆寫。  
+   - 若每日快照無可用 issue，系統應保留既有記憶，不新增或刪除內容。  
+
+---
+
+## Open Loops  
+- **等待 Issue 更新**：自 2026‑08‑07 起的所有快照皆顯示「等待下一輪 issue 更新後再整理」。此為持續未解決的循環，需在未來的 issue 產生時重新評估。  
+- **缺乏長期規則**：目前尚未從 issue
