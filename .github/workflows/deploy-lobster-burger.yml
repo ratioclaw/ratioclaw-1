@@ -292,7 +292,30 @@ jobs:
         working-directory: Terraform
         env:
           TF_VAR_workers_dev_subdomain: ${{ steps.workers_subdomain.outputs.subdomain }}
-        run: terraform init
+        run: |
+          set -euo pipefail
+
+          # provider 的簽章檔由 Terraform Registry 轉向 GitHub Releases 取得，
+          # 上游偶發 5xx（error: "failed to retrieve cryptographic signature"）會讓 init 直接失敗，
+          # 而 Terraform 內建只重試 2 次，因此在這裡加上外層重試與退避，避免整次部署白跑。
+          max_attempts=5
+
+          for attempt in $(seq 1 "${max_attempts}"); do
+            if terraform init; then
+              exit 0
+            fi
+
+            if [[ "${attempt}" -eq "${max_attempts}" ]]; then
+              echo "::error::terraform init 連續失敗 ${max_attempts} 次，可能是 Terraform Registry 或 GitHub 暫時性錯誤，請稍後重新執行部署。"
+              exit 1
+            fi
+
+            delay_seconds=$((attempt * 15))
+            echo "::warning::terraform init 第 ${attempt} 次失敗，${delay_seconds} 秒後重試（Terraform Registry／GitHub 暫時性錯誤）"
+
+            rm -rf .terraform/providers
+            sleep "${delay_seconds}"
+          done
 
       - name: Resolve existing Worker
         id: worker_reconciliation
