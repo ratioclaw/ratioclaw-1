@@ -1,29 +1,34 @@
-# Repository Memory
+# Repository Memory  
 
-## Stable Context
-- 目前的日誌與快照皆未檢測到任何可用的 Issue，故無法抽取長期穩定規則或決策。  
-- 依照 **Shared Memory Manual Notes**，以下原則被視為倉庫的基礎約定，屬於永久性限制而非臨時資訊：  
-  1. **GitHub Issue / Comment 為唯一原始資料來源**，所有事實與決策必須追溯至此。  
-  2. **shared/manual.md** 為手動維護的長期記憶檔案，系統會讀取但不會覆寫此檔。  
-  3. 任何 **compact‑memory workflow** 必須尊重上述兩點，避免直接複製 Issue 原文。  
+## Stable Context  
+- **長期規則**  
+  - 只以 GitHub Issue / Comment 為原始資料來源，任何記憶內容皆須根據這些來源抽象、濃縮。  
+  - `shared/manual.md` 為唯一人工維護的長期記憶檔案，**不會**被自動流程覆寫。  
+  - 任何自動產出的摘要（如 daily snapshots）只能**蒸餾**出可重用的規則或決策，絕不能直接複製原始 Issue 文字。  
 
-> **不確定性**：除上述元規則外，缺乏實際 Issue 內容，使得目前無法確定任何業務流程、工作習慣或技術決策屬於「穩定」狀態。
+- **長期決策**  
+  - 目前尚未在 Issue 中形成跨議題的決策，故無可記錄的長期決策。  
 
-## Recent Themes
-- 最近 30 天（2026‑09‑09 至 2026‑09‑15）的所有 Daily Snapshots 均報告 **「本次整理視窗沒有可用 issue」**，因此未出現可辨識的跨 Issue 主題或重複出現的討論焦點。  
-- 由於缺乏資料，**近期主題** 目前只能說是「無活動」或「等待新 Issue」的狀態。
+- **常見限制**  
+  - 只能在 `daily/` 目錄內的 JSON 快照中取得最近 30 天內的 Issue 資訊。  
+  - 若快照顯示「本次整理視窗沒有可用 issue」，則代表當前沒有可供蒸餾的資料。  
+  - 任何新資訊必須在下一輪 Issue 更新後才會被納入記憶。  
 
-## Constraints
-1. **資料來源限制**  
-   - 只能從 GitHub Issue / Comment 取得事實與決策。  
-   - 任何非 Issue 的文字（如聊天紀錄、即時訊息）不應被視為正式記憶來源。  
+- **repo 習慣**  
+  - 使用 **compact‑memory workflow**：  
+    1. 讀取 `shared/manual.md` 取得穩定規則。  
+    2. 解析最近的 daily snapshots，抽取跨 Issue 主題與決策。  
+    3. 只在 `MEMORY.md` 中寫入 **長期可重用** 的上下文，避免冗餘。  
+  - `MEMORY.md` 只保留 **策展後的長期記憶**，不作為日誌或索引頁。  
 
-2. **手動筆記限制**  
-   - `shared/manual.md` 只能由人類手動編輯，系統不會自動寫入或覆寫。  
-   - 內容應聚焦於「穩定規則、長期決策、常見限制、repo 習慣」等長期可重用資訊。  
+## Recent Themes  
+- 2026‑09‑10 至 2026‑09‑16 的所有 daily snapshots 均顯示 **「本次整理視窗沒有可用 issue」**，因此目前沒有可辨識的跨 Issue 主題或近期重複出現的議題。  
 
-3. **記憶蒸餾流程**  
-   - `compact-memory workflow` 必須在抽取資訊時避免逐段複製原始 Issue 文字，需以摘要或規則形式呈現。  
+## Constraints  
+1. **資料來源限制**：只能引用 GitHub Issue / Comment，不能直接貼上原始 Issue 內容。  
+2. **更新頻率**：記憶的更新依賴於 Issue 的產生與變更；若無新 Issue，記憶保持不變。  
+3. **手動筆記保護**：`shared/manual.md` 由人類維護，系統不會覆寫或自動修改此檔。  
+4. **格式要求**：`MEMORY.md` 必須以 Markdown 撰寫，首行為 `# Repository Memory`，並包含四個固定子節。  
 
-## Open Loops
-- **Issue 更新待命**：所有 Daily Snapshots 均顯示「等待下一輪 issue 更新後再整理」，因此目前的未完成事項
+## Open Loops  
+- **等待 Issue 更新**：目前所有 daily snapshots 均未捕捉到可用
