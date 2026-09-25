@@ -1,32 +1,17 @@
-# Repository Memory  
+# Repository Memory
 
-## Stable Context  
-- **長期規則**  
-  - 只以 GitHub Issue / Comment 為原始資料來源，任何摘要或記錄皆須基於這些正式條目。  
-  - `shared/manual.md` 為手動維護的長期記憶檔案，**不會**被自動流程覆寫。  
-  - 任何自動化的記憶蒸餾（compact‑memory workflow）只能**讀取**此手動筆記，不能直接寫入或取代。  
+## Stable Context
+- **Repository**: `ratioclaw/ratioclaw-1`  
+- **記憶架構**：本倉庫的長期記憶全由 **GitHub Issue** 與 **Issue Comment** 作為原始資料來源，透過每日一次的 *issue agents* 產出 JSON 快照，並由 **compact‑memory workflow** 讀取與整理。  
+- **每日快照規則**  
+  - 只檢視最近 **30 天**、最多 **100 件** Issue。  
+  - 產出內容包括：Agent Activity、Cross‑Issue Themes、Decisions、Open Loops、Top Labels。  
+  - 若當日無可用 Issue，快照會保留既有記憶並標示「沒有可用 issue」。  
+- **手動筆記 (`shared/manual.md`)** 為唯一的 **長期穩定規則** 儲存處，內容包括：  
+  - 放置 **穩定規則、長期決策、常見限制、repo 習慣**。  
+  - **不** 直接複製 Issue 原文。  
+  - 只作為 *compact‑memory* 的參考，不會被自動覆寫。  
+- **目前狀態**：過去 30 天內 **無任何 Issue** 被標記為可用，所有每日快照皆回報「先保留既有記憶」。因此，除手動筆記外，沒有新增的跨 Issue 主題或決策可供蒸餾。
 
-- **Repo 習慣**  
-  - 所有 agents 必須遵守「不完整複製」原始 Issue 文字的原則，只保留關鍵概念與決策。  
-  - 每日快照（daily snapshots）會在過去 30 天內搜尋最多 100 個 Issue，若無可用 Issue，則保留既有記憶不變。  
-  - 跨 Issue 的主題、決策與未完成事項（Open Loops）僅在有足夠資料時才會被抽取並記錄。  
-
-- **長期決策**  
-  - 目前尚未出現任何跨 Issue 的決策，因此暫無固定決策可列入長期記憶。  
-
-## Recent Themes  
-- **缺乏可用 Issue**：自 2026‑09‑18 起的每日快照皆顯示「本次整理視窗沒有可用 issue」，說明近期 repo 內的 Issue 活動極低或已全部關閉。  
-- **無跨 Issue 主題**：每日報告均未偵測到可辨識的跨 Issue 主題。  
-
-> **註**：上述主題僅反映最近 10 天的快照結果，若未來出現新 Issue，相關主題將在下一次快照中更新。  
-
-## Constraints  
-1. **資料來源限制**  
-   - 只能引用 Issue / Comment，不能直接引用其他非結構化文件（如聊天記錄、隨筆）。  
-2. **內容編寫限制**  
-   - 不得完整複製 Issue 原文，必須以摘要或概念化方式呈現。  
-   - `shared/manual.md` 為唯一允許手動編輯的長期記憶檔案，其他自動生成的檔案（如本 MEMORY.md）僅作為衍生摘要。  
-3. **更新頻率**  
-   - 每日快照只檢視過去 30 天內的 Issue，若超過此範圍則不會自動納入。  
-4. **不確定性處理**  
-   - 若資訊不足或相互矛盾，必須在相應節點標註「不確定」或「
+## Recent Themes
+- **無跨 Issue 主題**：2026‑09
