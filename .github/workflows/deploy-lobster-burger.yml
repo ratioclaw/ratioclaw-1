@@ -13,8 +13,10 @@ on:
       telegram_bot_token: { required: false, type: string, default: "" }
       telegram_webhook_secret: { required: false, type: string, default: "" }
       telegram_chat_id: { required: false, type: string, default: "" }
+      telegram_forum_chat_id: { required: false, type: string, default: "" }
       telegram_allowed_chat_id: { required: false, type: string, default: "" }
       telegram_allowed_from_id: { required: false, type: string, default: "" }
+      telegram_allowed_from_ids: { required: false, type: string, default: "" }
       gemini_api_key: { required: false, type: string, default: "" }
       felo_api_key: { required: false, type: string, default: "" }
       debug_mode: { required: false, type: string, default: "false" }
@@ -31,8 +33,10 @@ on:
       telegram_bot_token: { required: true, type: string }
       telegram_webhook_secret: { required: true, type: string }
       telegram_chat_id: { required: true, type: string }
+      telegram_forum_chat_id: { required: false, type: string, default: "" }
       telegram_allowed_chat_id: { required: false, type: string, default: "" }
       telegram_allowed_from_id: { required: false, type: string, default: "" }
+      telegram_allowed_from_ids: { required: false, type: string, default: "" }
       gemini_api_key: { required: false, type: string, default: "" }
       felo_api_key: { required: false, type: string, default: "" }
       debug_mode: { required: false, type: string, default: "false" }
@@ -69,8 +73,10 @@ jobs:
       TF_VAR_telegram_bot_token: ${{ inputs.telegram_bot_token || secrets.TELEGRAM_BOT_TOKEN }}
       TF_VAR_telegram_webhook_secret: ${{ inputs.telegram_webhook_secret || secrets.TELEGRAM_WEBHOOK_SECRET }}
       TF_VAR_telegram_chat_id: ${{ inputs.telegram_chat_id || secrets.TELEGRAM_CHAT_ID }}
+      TF_VAR_telegram_forum_chat_id: ${{ inputs.telegram_forum_chat_id || secrets.TELEGRAM_FORUM_CHAT_ID }}
       TF_VAR_telegram_allowed_chat_id: ${{ inputs.telegram_allowed_chat_id || inputs.telegram_chat_id || secrets.TELEGRAM_ALLOWED_CHAT_ID || secrets.TELEGRAM_CHAT_ID }}
       TF_VAR_telegram_allowed_from_id: ${{ inputs.telegram_allowed_from_id || inputs.telegram_chat_id || secrets.TELEGRAM_ALLOWED_FROM_ID || secrets.TELEGRAM_CHAT_ID }}
+      TF_VAR_telegram_allowed_from_ids: ${{ inputs.telegram_allowed_from_ids || secrets.TELEGRAM_ALLOWED_FROM_IDS }}
       TF_VAR_gemini_api_key: ${{ inputs.gemini_api_key || secrets.GEMINI_API_KEY }}
       TF_VAR_felo_api_key: ${{ inputs.felo_api_key || secrets.FELO_API_KEY }}
       TF_VAR_debug_mode: ${{ (inputs.debug_mode || vars.DEBUG_MODE || 'false') == 'true' }}
@@ -221,8 +227,10 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ inputs.telegram_bot_token || secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_WEBHOOK_SECRET: ${{ inputs.telegram_webhook_secret || secrets.TELEGRAM_WEBHOOK_SECRET }}
           TELEGRAM_CHAT_ID: ${{ inputs.telegram_chat_id || secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_FORUM_CHAT_ID: ${{ inputs.telegram_forum_chat_id || secrets.TELEGRAM_FORUM_CHAT_ID }}
           TELEGRAM_ALLOWED_CHAT_ID: ${{ inputs.telegram_allowed_chat_id || inputs.telegram_chat_id || secrets.TELEGRAM_ALLOWED_CHAT_ID || secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_ALLOWED_FROM_ID: ${{ inputs.telegram_allowed_from_id || inputs.telegram_chat_id || secrets.TELEGRAM_ALLOWED_FROM_ID || secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_ALLOWED_FROM_IDS: ${{ inputs.telegram_allowed_from_ids || secrets.TELEGRAM_ALLOWED_FROM_IDS }}
           GEMINI_API_KEY: ${{ inputs.gemini_api_key || secrets.GEMINI_API_KEY }}
           FELO_API_KEY: ${{ inputs.felo_api_key || secrets.FELO_API_KEY }}
         run: |
@@ -241,8 +249,10 @@ jobs:
             TELEGRAM_BOT_TOKEN \
             TELEGRAM_WEBHOOK_SECRET \
             TELEGRAM_CHAT_ID \
+            TELEGRAM_FORUM_CHAT_ID \
             TELEGRAM_ALLOWED_CHAT_ID \
-            TELEGRAM_ALLOWED_FROM_ID
+            TELEGRAM_ALLOWED_FROM_ID \
+            TELEGRAM_ALLOWED_FROM_IDS
           do
             gh secret set "${secret_name}" --repo "${GITHUB_REPOSITORY}" --body "${!secret_name}"
           done
