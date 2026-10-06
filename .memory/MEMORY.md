@@ -1,30 +1,31 @@
 # Repository Memory
 
 ## Stable Context
-- **目前尚未在 issue 中確立任何長期穩定規則**。  
-- **長期決策**：無可供引用的跨 issue 決策紀錄。  
-- **共通限制**  
-  - 只有 **GitHub Issue / Comment** 被視為原始資料來源。  
-  - `compact-memory` 工作流程會 **讀取** 本手動筆記，但 **不會覆寫**。  
-- **Repo 習慣**：目前未有明確記錄的 agent 共同遵守的作業慣例。  
-
-> **不確定性**：因為過去 30 天的 daily snapshots 均未捕捉到任何可用 issue，以上「穩定」項目實際上可能仍在形成中，需待未來 issue 出現後再行補充。
+- **資料來源**：長期記憶主要由兩個來源構成  
+  1. **Shared Manual Notes**（`shared/manual.md`）— 由人類手動維護，保存穩定規則、長期決策、常見限制與 repo 習慣。  
+  2. **Daily Snapshots**（`daily/*.json`）— 由 issue agents 每日彙整的 issue 狀態與跨 issue 主題。  
+- **工作流程**：  
+  - 所有原始資訊皆來自 GitHub Issue / Comment。  
+  - `compact-memory` 工作流會讀取 `shared/manual.md` 作為長期記憶的基礎，但不會覆寫此檔。  
+- **目前觀測**：過去 10 天的 Daily Snapshots 均顯示「本次整理視窗沒有可用 issue」，因此在此期間沒有新產生的跨 issue 主題、決策或標籤。  
+- **已知的 repo 習慣**（來自手動筆記）  
+  - 只在 `shared/manual.md` 中記錄穩定規則與決策，避免在日誌中重複 Issue 標題。  
+  - 每日快照僅在有可用 Issue 時才產生跨 issue 主題與決策摘要。  
 
 ## Recent Themes
-- **無跨 issue 主題**：最近 30 天的每日快照皆顯示「目前沒有可辨識的跨 issue 主題」。  
-- **無新決策**：同樣未出現任何跨 issue 決策。  
-
-> **觀察**：近期的資料顯示 repository 目前處於靜止或待命狀態，缺乏活躍的議題流。
+> 目前沒有可辨識的跨 issue 主題或重複出現的議題。  
+> 若未來出現持續出現的主題，將在此節更新。
 
 ## Constraints
-1. **資料來源限制**  
-   - 只能從 GitHub Issue 與其 Comment 中抽取資訊，其他來源（如 PR、Wiki）不被視為正式記憶來源。  
-2. **手動筆記的角色**  
-   - `shared/manual.md` 為 **長期記憶的手動維護檔**，僅供參考與補充，系統不會自動覆寫。  
-3. **記憶蒸餾規則**  
-   - 只保留 **穩定且重複出現** 的資訊；臨時或一次性出現的資訊應歸入「Open Loops」或「Recent Themes」。  
-4. **Issue 數量上限**  
-   - 每次快照僅檢視最近 30 天內、最多 100 個 issue。若超過此上限，可能會遺漏資訊。  
+1. **資訊來源限制**  
+   - 只能引用 GitHub Issue / Comment 作為原始事實。  
+   - `shared/manual.md` 為唯一的手動長期記憶來源，不能被自動覆寫。  
+2. **內容呈現規則**  
+   - 不得直接複製 Issue 原文或標題。  
+   - 必須將每日快照的重複資訊蒸餾為可重用的長期上下文。  
+3. **不確定性處理**  
+   - 若資訊不足或相互矛盾，必須在相應節點標註「不確定」或「缺乏資料」。  
 
 ## Open Loops
-- **等待 Issue 更新**：所有每日快照皆顯示「等待下一輪 issue 更新後再整理」，表示目前缺乏可
+- **Issue 更新待命**：所有每日快照皆顯示「等待下一輪 issue 更新後再整理」，表示目前缺乏可供分析的 Issue。  
+- **未來主
