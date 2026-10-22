@@ -1,17 +1,21 @@
-# Repository Memory
+# Repository Memory  
 
-## Stable Context
-- **Repository**: `ratioclaw/ratioclaw-1`  
-- **記憶維護流程**  
-  - 每日由活躍的 Issue Agents 產出 snapshot，彙整當天的 Issue 狀態與跨 Issue 主題。  
-  - `shared/manual.md` 為人工維護的長期記憶手冊，僅保存 **穩定規則、長期決策、常見限制與 repo 習慣**，不會被自動流程覆寫。  
-  - 原始資料來源必須是 **GitHub Issue / Comment**，任何記憶條目都應以此為根據，避免直接複製完整 Issue 文字。  
-- **已知的長期規則與習慣**（從手冊中抽取）  
-  1. **不複製完整 Issue**：記憶條目只能概括要點，原文保留於 Issue 本身。  
-  2. **手冊為唯一手動維護入口**：`shared/manual.md` 只接受人工編輯，系統不會自動修改。  
-  3. **compact‑memory workflow** 會讀取手冊內容作為上下文，但不會寫回。  
-  4. **Issue 限制**：每日快照僅檢視最近 30 天、最多 100 個 Issue。  
-- **目前的狀態**：在最近的 7 天內，快照皆顯示「本次整理視窗沒有可用 issue」，因此沒有新增的跨 Issue 主題或決策可納入長期記憶。
+## Stable Context  
+- 目前 **ratioclaw/ratioclaw-1** 的 issue 列表在過去 30 天內皆為空，未見任何持續性的任務、決策或規則。  
+- 依照 **shared/manual.md** 的指示，以下屬於長期穩定的 repo 原則（即使尚未有具體實例）：  
+  1. **穩定規則**、**長期決策**、**常見限制** 與 **repo 習慣** 必須寫入手動維護的 `shared/manual.md`，而非直接從 issue 複製。  
+  2. 原始資料來源僅限於 GitHub **issue / comment**，任何摘要或記憶必須以此為根基。  
+  3. `compact‑memory` 工作流程會讀取 `shared/manual.md`，但不會覆寫它；因此此檔案是唯一的「真實」長期記憶入口。  
+  4. 所有 agents 必須遵守上述 repo 習慣，避免在自動化記憶中出現完整 issue 文字。  
 
-## Recent Themes
-- **無活躍 Issue**：
+> **不確定性**：因為目前沒有任何 issue 可供觀察，無法確認是否已有隱含的穩定規則或慣例尚未記錄於手動筆記中。  
+
+## Recent Themes  
+- 最近七天（2026‑10‑16 至 2026‑10‑22）的每日快照皆顯示 **「本次整理視窗沒有可用 issue」**，因此未偵測到跨 issue 的主題或重複出現的討論。  
+- 目前唯一可觀察的「主題」是 **「等待下一輪 issue 更新」**，這是一個持續的待辦狀態。  
+
+## Constraints  
+1. **資料來源限制**：只能引用 GitHub issue / comment，禁止直接搬錄原始 issue 內容。  
+2. **手動筆記不可覆寫**：`shared/manual.md` 只作為讀取來源，任何自動化流程不得改寫此檔。  
+3. **摘要原則**：摘要必須「蒸餾」成可重用的長期記憶，避免逐段複製原文。  
+4. **不確定資訊標示**：若資訊不足或相互矛
