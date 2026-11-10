@@ -1,27 +1,20 @@
 # Repository Memory
 
 ## Stable Context
-- **Repository**: `ratioclaw/ratioclaw-1`  
-- **記憶維護流程**  
-  - 每日由 *issue agents* 讀取過去 30 天內的 GitHub Issue/Comment，彙整成 **daily snapshot**。  
-  - 這些 snapshot 只作為 **原始資料**，不會直接寫入本檔；本檔僅保留 **長期、穩定** 的規則與決策。  
-  - `shared/manual.md` 為人工維護的長期記憶，**不會被自動覆寫**，且僅應包含：  
-    - 穩定規則  
-    - 長期決策  
-    - 常見限制  
-    - Repo 內部的共同行為慣例  
-- **資料來源原則**  
-  - 真正的事實與討論必須追溯至 **GitHub Issue / Comment**。  
-  - 本檔不會複製完整的 Issue 文字，只保留必要的抽象資訊。  
-- **compact‑memory workflow**：會讀取本檔以取得「常駐記憶」，但不會寫回或改寫本檔內容。  
-
-> **龍蝦小提醒**：若未來出現新的穩定規則或長期決策，請先在 `shared/manual.md` 中手動加入，讓我們的記憶更完整。
+- **記憶流程**：本倉庫的長期記憶由兩大來源構成  
+  1. **Shared Manual Notes**（`shared/manual.md`）— 由人類手動維護，保存穩定規則、長期決策、常見限制與 repo 習慣。  
+  2. **Daily Snapshots**（`daily/*.json`）— 由當天活躍的 issue agents 彙整，僅在有可用 issue 時產生跨 issue 主題、決策與開放環節。  
+- **資料來源原則**：所有具體事實皆必須來自 GitHub Issue 或 Comment；`shared/manual.md` 只作為摘要與指引，**不會被自動覆寫**。  
+- **記憶更新節奏**：每日快照會檢查過去 30 天內的 issue；若無可用 issue，則保留既有記憶，不產生新條目。  
+- **工程可讀性**：本文件僅保留 **抽象化、可重用** 的上下文資訊，避免逐段複製原始日誌或 issue 標題。
 
 ## Recent Themes
-> 目前的 daily snapshots（2026‑11‑01 至 2026‑11‑08）皆顯示 **無可用 Issue**，因此沒有可辨識的跨 Issue 主題或近期重複出現的議題。
+> 目前的每日快照（2026‑11‑03 至 2026‑11‑10）皆未偵測到可用 issue，故 **無可辨識的跨 issue 主題**。  
+- **暫無重複出現的主題**。  
+- 若未來出現持續性的議題（例如「測試自動化」或「部署流程」），將在此節匯總。
 
 ## Constraints
-1. **只能從 Issue / Comment 抽取事實**：任何未在 GitHub 上留下紀錄的資訊，都視為不確定或暫時無法驗證。  
-2. **不複製原始 Issue 文字**：本檔僅保留抽象化、可重用的規則或決策。  
-3. **手動筆記不可被自動覆寫**：`shared/manual.md` 必須由人類自行編輯與維護。  
-4. **每日快照的上限**：每次快照最多處
+1. **來源限制**：只能引用 Issue / Comment 作為事實依據；`shared/manual.md` 只能作為規則與限制的描述。  
+2. **不可覆寫**：自動化流程（如 `compact-memory`）不會改寫 `shared/manual.md`，因此任何手動加入的規則必須保持一致性。  
+3. **資訊稀疏**：當前 30 天內無任何開放或已關閉的 issue，導致缺乏新資訊供記憶蒸餾。  
+4. **不確定性聲明**：若未來出現相互矛盾的資訊，需在本節標註「不確定」或
