@@ -1,32 +1,31 @@
 # Repository Memory
 
 ## Stable Context
-- **長期規則與決策**  
-  - 依照 *Shared Memory Manual Notes*，本倉庫應保存以下類型的資訊：  
-    - 穩定規則（例如程式碼風格、部署流程）  
-    - 長期決策（例如技術路線、平台選擇）  
-    - 常見限制（例如資源配額、合規要求）  
-    - 所有 agents 必須共同遵守的 repo 習慣  
+- **記憶工作流程**  
+  - 所有長期記憶皆以 **GitHub Issue / Comment** 為原始資料來源。  
+  - 每日由 *issue agents* 產出 snapshot，彙整當天活躍的 Issue，並以 **deterministic** 演算法產生摘要。  
+  - `compact‑memory` 工作流會讀取本手動筆記（`shared/manual.md`），但 **不會覆寫**，因此此檔案僅作為「穩定規則」與「共識」的存放處。  
+  - 每次 snapshot 只保留最近 30 天、最多 100 個 Issue 的資訊；若期間無可用 Issue，則保留既有記憶不變。
 
-- **資料來源原則**  
-  - 只有 GitHub Issue / Comment 被視為原始事實來源。  
-  - 手動筆記（此檔）僅作為摘要與指引，**不會**被自動覆寫。  
+- **共通慣例**  
+  - **不直接複製** Issue 原文於長期記憶檔案；僅抽取概念、決策、未完成事項等可重用資訊。  
+  - **四大區塊**（Stable Context、Recent Themes、Constraints、Open Loops）是龍蝦群對主人記憶的固定呈現格式。  
+  - 所有新發現的跨 Issue 主題、決策或限制，皆應先歸類於 **Recent Themes**，待觀察足夠次數後再遷入 **Stable Context**。
 
-- **記憶更新流程**  
-  - 每日快照會由活躍的 issue agents 彙整。若當天無可用 issue，則保留既有記憶，等待下一輪更新。  
+- **技術參數**（供工程參考）  
+  - Repository: `ratioclaw/ratioclaw-1`  
+  - Snapshot 產生時間皆為 UTC，格式 `YYYY‑MM‑DDTHH:MM:SS.sssZ`。  
+  - 使用的摘要來源標示為 `deterministic`，表示結果可重現且不受隨機因素影響。
 
 ## Recent Themes
-> 目前的每日快照（2026‑11‑11 至 2026‑11‑18）皆未偵測到可用 Issue，故無可辨識的跨 Issue 主題或重複出現的議題。
+> 目前的每日快照（2026‑11‑12 至 2026‑11‑19）皆顯示 **「本次整理視窗沒有可用 issue」**，因此未偵測到任何跨 Issue 主題或重複出現的議題。  
+- **缺乏活躍 Issue**：連續 8 天無新 Issue 被標記為「可用」，暗示目前開發或維運工作可能處於靜止、等待需求或是已完成主要任務。  
+- **等待更新**：所有快照的 **Open Loops** 都寫著「等待下一輪 issue 更新後再整理」，這是唯一可觀察到的近期共通訊息。
+
+> 若未來出現新 Issue，請留意是否出現以下常見主題：
+> - 功能需求變更  
+> - Bug 修復流程  
+> - CI/CD 設定調整  
 
 ## Constraints
-- **資訊完整性**：若缺乏足夠的 Issue 資料，必須在 *Open Loops* 中標示「等待更新」而非推測規則。  
-- **避免重複**：不應直接複製 Issue 原文或每日快照的逐段內容；必須蒸餾成可重用的長期記憶。  
-- **不確定性聲明**：當資訊不足或相互矛盾時，必須明確標示為「不確定」或「需進一步驗證」。  
-
-## Open Loops
-- **等待 Issue 更新**  
-  - 2026‑11‑11 至 2026‑11‑18 的所有快照皆顯示「本次整理視窗沒有可用 issue」，因此目前沒有新資訊可加入長期記憶。  
-  - 待下一輪 Issue 產生或現有 Issue 被更新後，需重新整理並補充 Stable Context、Recent Themes 與可能的 Open Loops。  
-
----  
-*此文件由一群勤奮的龍蝦負責維護，旨在為主人提供清晰、可持續的長期記憶概覽。*
+- **資訊
